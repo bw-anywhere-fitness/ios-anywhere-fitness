@@ -8,20 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		1BB03E6E229336B800603B43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB03E6D229336B800603B43 /* AppDelegate.swift */; };
-		1BB03E70229336B800603B43 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB03E6F229336B800603B43 /* ViewController.swift */; };
 		1BB03E73229336B800603B43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BB03E71229336B800603B43 /* Main.storyboard */; };
 		1BB03E75229336B900603B43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BB03E74229336B900603B43 /* Assets.xcassets */; };
 		1BB03E78229336B900603B43 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BB03E76229336B900603B43 /* LaunchScreen.storyboard */; };
+		1BB03E802293415C00603B43 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB03E7F2293415C00603B43 /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1BB03E6A229336B800603B43 /* Anywhere Fitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Anywhere Fitness.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BB03E6D229336B800603B43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1BB03E6F229336B800603B43 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1BB03E72229336B800603B43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1BB03E74229336B900603B43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1BB03E77229336B900603B43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1BB03E79229336B900603B43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1BB03E7F2293415C00603B43 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +54,8 @@
 		1BB03E6C229336B800603B43 /* Anywhere Fitness */ = {
 			isa = PBXGroup;
 			children = (
+				1BB03E7F2293415C00603B43 /* SignUpViewController.swift */,
 				1BB03E6D229336B800603B43 /* AppDelegate.swift */,
-				1BB03E6F229336B800603B43 /* ViewController.swift */,
 				1BB03E71229336B800603B43 /* Main.storyboard */,
 				1BB03E74229336B900603B43 /* Assets.xcassets */,
 				1BB03E76229336B900603B43 /* LaunchScreen.storyboard */,
@@ -135,7 +135,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BB03E70229336B800603B43 /* ViewController.swift in Sources */,
+				1BB03E802293415C00603B43 /* SignUpViewController.swift in Sources */,
 				1BB03E6E229336B800603B43 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
