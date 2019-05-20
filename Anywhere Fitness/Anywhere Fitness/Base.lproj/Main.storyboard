@@ -99,6 +99,9 @@
                                 <subviews>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FQg-Wb-Svz">
                                         <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="switchValue:" destination="wT3-SZ-Dtu" eventType="valueChanged" id="qLo-pT-eB0"/>
+                                        </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sign up to be a fitness Instructor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqn-KT-OXC">
                                         <rect key="frame" x="107" y="0.0" width="247" height="31"/>
@@ -114,6 +117,9 @@
                                     <segment title="Sign Up"/>
                                     <segment title="Log In"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentedValue:" destination="wT3-SZ-Dtu" eventType="valueChanged" id="iDZ-oR-asN"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -134,6 +140,22 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wNH-RU-yjj"/>
                     </view>
+                    <connections>
+                        <outlet property="confirmPasswordLabel" destination="thr-FB-Sje" id="i5s-Nv-BdB"/>
+                        <outlet property="confirmPasswordTF" destination="UWx-SH-Zkl" id="mgm-CM-21y"/>
+                        <outlet property="emailLabel" destination="O3x-xp-o3z" id="zss-Cb-tl6"/>
+                        <outlet property="emailTF" destination="fXI-HL-SV2" id="o28-7C-oPO"/>
+                        <outlet property="firstNameLabel" destination="fbX-xK-Xf5" id="iE6-PP-1Yu"/>
+                        <outlet property="firstNameTF" destination="1Cw-z4-cAZ" id="aCK-Nl-pEF"/>
+                        <outlet property="fitnessInstrLabel" destination="nqn-KT-OXC" id="Tx7-Km-hXH"/>
+                        <outlet property="imageView" destination="Rif-sm-OGS" id="ctu-Bw-CKg"/>
+                        <outlet property="lastNameLabel" destination="cvl-1J-bEo" id="xvM-wh-0US"/>
+                        <outlet property="lastNameTF" destination="jAU-Tj-cjF" id="BQZ-Xi-dQ4"/>
+                        <outlet property="passwordLabel" destination="iGF-Zj-dNL" id="VJZ-mZ-o7x"/>
+                        <outlet property="passwordTF" destination="L9G-Tl-Yeq" id="P8Z-91-0hR"/>
+                        <outlet property="segmentedProperties" destination="c1O-Q3-4qe" id="nis-DA-MWU"/>
+                        <outlet property="switchProperties" destination="FQg-Wb-Svz" id="GHe-X4-kgK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MNX-PN-IDG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
