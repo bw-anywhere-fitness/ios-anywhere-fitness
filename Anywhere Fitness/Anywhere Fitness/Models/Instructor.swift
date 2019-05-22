@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+struct Instructor {
+    let username: String
+    let password: String
+    let instructor: Bool
+    let workouts: [Workout]
+}

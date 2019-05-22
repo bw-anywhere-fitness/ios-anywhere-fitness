@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+//should this be an emum?
+struct PunchPass {
+    var day: Int
+    var price: Double
+}

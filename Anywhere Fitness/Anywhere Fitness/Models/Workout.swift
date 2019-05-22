@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+struct Workout {
+    let location: Location
+    let instructor: Instructor
+    let punchPass: PunchPass?
+}

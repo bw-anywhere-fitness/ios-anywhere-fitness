@@ -8,7 +8,9 @@
 
 import Foundation
 
-struct Client {
+struct Client: Codable {
     let username: String
     let password: String
+    let instructor: Bool
+    let passes: [PunchPass]?
 }

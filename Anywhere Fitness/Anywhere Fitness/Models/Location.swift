@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+struct Location {
+    let date: Date
+    let place: String
+    
+}
