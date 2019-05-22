@@ -104,7 +104,7 @@
 			path = "Model Controller";
 			sourceTree = "<group>";
 		};
-		1B8870E1229587B200E11A28 /* Instructors Folder */ = {
+		1B8870E1229587B200E11A28 /* INSTRUCTOR Folder */ = {
 			isa = PBXGroup;
 			children = (
 				1B8870EB2295891D00E11A28 /* Table View Controllers */,
@@ -112,7 +112,7 @@
 				1B8870E3229587D300E11A28 /* Model Controller */,
 				1B8870E2229587CA00E11A28 /* Model */,
 			);
-			path = "Instructors Folder";
+			path = "INSTRUCTOR Folder";
 			sourceTree = "<group>";
 		};
 		1B8870E2229587CA00E11A28 /* Model */ = {
@@ -141,7 +141,7 @@
 			path = "View Controller";
 			sourceTree = "<group>";
 		};
-		1B8870E52295882F00E11A28 /* Client Folder */ = {
+		1B8870E52295882F00E11A28 /* CLIENT  Folder */ = {
 			isa = PBXGroup;
 			children = (
 				1B8870EA2295891200E11A28 /* Table View controllers */,
@@ -149,7 +149,7 @@
 				1B8870DA2295838000E11A28 /* Model Controller */,
 				1B8870CE22957ED900E11A28 /* Models */,
 			);
-			path = "Client Folder";
+			path = "CLIENT  Folder";
 			sourceTree = "<group>";
 		};
 		1B8870E62295886100E11A28 /* Resources */ = {
@@ -251,8 +251,8 @@
 			children = (
 				1B8870D9229582FC00E11A28 /* Storyboard */,
 				1B8870E72295887C00E11A28 /* Combo Folder */,
-				1B8870E52295882F00E11A28 /* Client Folder */,
-				1B8870E1229587B200E11A28 /* Instructors Folder */,
+				1B8870E52295882F00E11A28 /* CLIENT  Folder */,
+				1B8870E1229587B200E11A28 /* INSTRUCTOR Folder */,
 				1B8870E62295886100E11A28 /* Resources */,
 			);
 			path = "Anywhere Fitness";
