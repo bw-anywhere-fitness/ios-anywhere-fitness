@@ -56,6 +56,26 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func signInButtonPressed(_ sender: UIButton) {
+        guard let name = firstNameTF.text, !name.isEmpty, let lastName = lastNameTF.text, !lastName.isEmpty,let email = emailTF.text, !email.isEmpty, let password = confirmPwTF.text, !password.isEmpty else { return }
+        
+        let client = Client(username: name, password: password, instructor: switchProperties.isOn, workouts: nil, passes: nil)
+
+        cc.signIn(with: client) { (error) in
+            if let error = error {
+                print("Sign in did not work - function call: \(error.localizedDescription)")
+                return
+            }
+            DispatchQueue.main.async {
+                print("Sign in worked")
+                self.view.backgroundColor = .magenta
+                if client.instructor {
+                    self.performSegue(withIdentifier: "InstructorSegue", sender: self)
+                } else {
+                    self.performSegue(withIdentifier: "ClientSegue", sender: self)
+                }
+                
+            }
+        }
         
     }
     

@@ -71,6 +71,41 @@ class ClientController {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
+        let jE = JSONEncoder()
         
+        do {
+            let jsonData = try jE.encode(client)
+           request.httpBody = jsonData
+        } catch  {
+            print("Error decoding the client while signing in: \(error.localizedDescription)")
+            completion(error)
+            return
+        }
+        
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
+            if let error = error {
+                print("error with network call to post client: \(error.localizedDescription)")
+                completion(error)
+                return
+            }
+            
+            guard let data = data else {
+                print("problem with data: \(NSError())")
+                completion(NSError())
+                return }
+            
+            //the data we are getting back per the api should be the token
+            let jD = JSONDecoder()
+            
+            do {
+                self.bearer = try jD.decode(Bearer.self, from: data)
+                print("this is the bearer: \(self.bearer?.token)")
+            } catch {
+                print("Error decoding the data: \(error.localizedDescription)")
+                completion(error)
+                return
+            }
+            completion(nil)
+            }.resume()
     }
 }

@@ -14,7 +14,7 @@ struct Workout: Codable {
     let schedule: String
     let location: String
     let image: String?
-    let instructorID: Int  //api doc has instructor_id will have to use decodingKeys
+    let instructorID: Int?  //api doc has instructor_id will have to use decodingKeys
     
 //    //a workout may or may not have clients signed up for it
 //    let punchPass: PunchPass?
