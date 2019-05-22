@@ -25,7 +25,7 @@ class ClientController {
         var request = URLRequest(url: endPointUrl)
         request.httpMethod = "POST"
         //do i need to set value for the the http header?
-        request.setValue("appliication/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let je = JSONEncoder()
         
@@ -54,12 +54,14 @@ class ClientController {
             
             do {
                 self.bearer = try jD.decode(Bearer.self, from: data)
+                print("this is the bearer: \(self.bearer?.token)")
             } catch {
                 print("Error decoding the data: \(error.localizedDescription)")
                 completion(error)
                 return
             }
-        }
+            completion(nil)
+        }.resume()
         
         
     }

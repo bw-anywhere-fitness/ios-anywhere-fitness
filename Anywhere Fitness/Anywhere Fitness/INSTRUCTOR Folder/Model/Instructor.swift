@@ -13,6 +13,7 @@ struct Instructor: Codable {
 
     let username: String
     let password: String
+    let id: Int?
     let instructor: Bool
-    let workouts: [Workout]
+    let workouts: [Workout]?
 }

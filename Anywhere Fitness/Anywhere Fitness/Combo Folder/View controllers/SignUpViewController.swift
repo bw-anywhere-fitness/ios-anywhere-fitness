@@ -9,8 +9,8 @@
 import UIKit
 
 class SignUpViewController: UIViewController {
+    var cc = ClientController()
 
-    
     //MARK: - Text Fields
     @IBOutlet weak var firstNameTF: UITextField!
     @IBOutlet weak var lastNameTF: UITextField!
@@ -33,7 +33,18 @@ class SignUpViewController: UIViewController {
     
     @IBAction func testButton(_ sender: UIButton) {
         guard let name = firstNameTF.text, !name.isEmpty, let password = confirmPwTF.text, !password.isEmpty else { return }
-       
+        
+       let client = Client(username: name, password: password, instructor: false, passes: nil, workouts: nil)
+        cc.signUp(client: client) { (error) in
+            if let error = error {
+                print("Error with signUp function call: \(error.localizedDescription)")
+                return
+            }
+            DispatchQueue.main.async {
+                print("Print It worked")
+                self.view.backgroundColor = .green
+            }
+        }
         
     }
     
