@@ -165,7 +165,7 @@
             </objects>
             <point key="canvasLocation" x="-2352.1739130434785" y="902.67857142857133"/>
         </scene>
-        <!--Your Class Table View Controller-->
+        <!--your class 2-->
         <scene sceneID="X0W-U6-ZCc">
             <objects>
                 <viewController id="ftG-hi-30Z" customClass="YourClassTableViewController" customModule="Anywhere_Fitness" customModuleProvider="target" sceneMemberID="viewController">
@@ -216,6 +216,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="36c-Zc-Oo9"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="your class 2" id="4Ej-0O-CiS"/>
                     <navigationItem key="navigationItem" id="Dl4-3l-pl2">
                         <barButtonItem key="leftBarButtonItem" title="Sign Out" id="Q8u-7C-K8g"/>
                         <rightBarButtonItems>
@@ -223,6 +224,7 @@
                             <barButtonItem title="Settings" id="7Qg-fu-IqN"/>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i5D-Xw-vHo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -390,7 +392,7 @@
                                 </state>
                                 <connections>
                                     <action selector="signUpButtonPressed:" destination="cWM-z8-V3k" eventType="touchUpInside" id="GNV-1p-g2A"/>
-                                    <segue destination="gJa-ZJ-2GX" kind="show" identifier="SignUpSegue" id="3qc-VN-Rfu"/>
+                                    <segue destination="kqw-I5-CgD" kind="show" identifier="segue" id="BwD-e6-AFR"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -562,7 +564,6 @@
                                         <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
                                         <connections>
                                             <action selector="switchValueChanged:" destination="gJa-ZJ-2GX" eventType="valueChanged" id="JKb-LE-cXr"/>
-                                            <segue destination="kqw-I5-CgD" kind="show" identifier="SwitchSegue" id="VlR-Kq-H85"/>
                                         </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up to be a fitness instrcutor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUJ-za-9FC">

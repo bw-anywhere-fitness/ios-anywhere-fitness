@@ -8,8 +8,13 @@
 
 import Foundation
 
-struct Workout {
+struct Workout: Codable {
+    
+    //does everything below here have to be on the api documentation for parsing purposes?
     let location: Location
     let instructor: Instructor
     let punchPass: PunchPass?
+    
+    //a workout may or may not have clients signed up for it
+    let clients: [Client]?
 }

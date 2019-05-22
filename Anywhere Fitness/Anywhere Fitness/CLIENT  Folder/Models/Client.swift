@@ -13,4 +13,7 @@ struct Client: Codable {
     let password: String
     let instructor: Bool
     let passes: [PunchPass]?
+    
+    //client may or may not be signed up for workouts
+    let workouts: [Workout]?
 }
