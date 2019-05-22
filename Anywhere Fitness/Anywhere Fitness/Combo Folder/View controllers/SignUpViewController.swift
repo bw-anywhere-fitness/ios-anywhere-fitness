@@ -10,6 +10,8 @@ import UIKit
 
 class SignUpViewController: UIViewController {
     var cc = ClientController()
+    var isInstructor = false
+    var hasTrainingCert = false
 
     //MARK: - Text Fields
     @IBOutlet weak var firstNameTF: UITextField!
@@ -23,18 +25,45 @@ class SignUpViewController: UIViewController {
     
     //MARK: - More IBOutlets
     @IBOutlet weak var switchProperties: UISwitch!
+    @IBOutlet weak var cprButtonProperties: UIButton!
+    @IBOutlet weak var trainingCertProperties: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        cprButtonProperties.isEnabled = false
+        trainingCertProperties.isEnabled = false
+        
     }
     
-    @IBAction func testButton(_ sender: UIButton) {
-        guard let name = firstNameTF.text, !name.isEmpty, let password = confirmPwTF.text, !password.isEmpty else { return }
+    @IBAction func cprFirstAidButton(_ sender: UIButton) {
         
-       let client = Client(username: name, password: password, instructor: false, passes: nil, workouts: nil)
+    }
+    
+    @IBAction func trainingCertButton(_ sender: UIButton) {
+    }
+    //MARK: - IBActions
+    @IBAction func switchValueChanged(_ sender: UISwitch) {
+        if sender.isOn {
+            isInstructor = true
+            cprButtonProperties.isEnabled = true
+            trainingCertProperties.isEnabled = true
+        } else {
+            isInstructor = false
+            cprButtonProperties.isEnabled = false
+            trainingCertProperties.isEnabled = false
+        }
+    }
+    
+    @IBAction func signInButtonPressed(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func signUPButtonPressed(_ sender: UIButton) {
+        
+        guard let name = firstNameTF.text, !name.isEmpty, let lastName = lastNameTF.text, !lastName.isEmpty,let email = emailTF.text, !email.isEmpty, let password = confirmPwTF.text, !password.isEmpty else { return }
+        
+        let client = Client(username: name, password: password, instructor: switchProperties.isOn, workouts: nil, passes: nil)
         cc.signUp(client: client) { (error) in
             if let error = error {
                 print("Error with signUp function call: \(error.localizedDescription)")
@@ -43,21 +72,14 @@ class SignUpViewController: UIViewController {
             DispatchQueue.main.async {
                 print("Print It worked")
                 self.view.backgroundColor = .green
+                if self.isInstructor && self.hasTrainingCert {
+                    self.performSegue(withIdentifier: "InstructorSegue", sender: self)
+                } else {
+                    self.performSegue(withIdentifier: "ClientSegue", sender: self)
+                }
+                
             }
         }
-        
-    }
-    
-    //MARK: - IBActions
-    @IBAction func switchValueChanged(_ sender: UISwitch) {
-    }
-    
-    @IBAction func cancelButtonPressed(_ sender: UIButton) {
-    }
-    
-    @IBAction func confirmButtonPressed(_ sender: UIButton) {
-        
-        //TAKES YOU BACK TO THE LANDING PAGE SO THAT THE USER CAN SIGNIN
     }
     
     /*

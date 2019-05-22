@@ -15,8 +15,6 @@ class ClientController {
     //get the base url
     private let baseURL = URL(string: "https://anywhere-fitness.herokuapp.com/")!
     
-    
-    
     func signUp(client: Client, completion: @escaping (Error?) -> Void){
         //endpoints are /auth/register
         let endPointUrl = baseURL.appendingPathComponent("auth").appendingPathComponent("register")
@@ -62,10 +60,17 @@ class ClientController {
             }
             completion(nil)
         }.resume()
-        
-        
     }
     
     
-    
+    func signIn(with client: Client, completion: @escaping (Error?) -> Void ){
+        //get the base url
+        let url = baseURL.appendingPathComponent("auth").appendingPathComponent("login")
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        
+    }
 }
