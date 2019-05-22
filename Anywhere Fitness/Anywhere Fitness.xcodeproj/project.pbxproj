@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B8870D022957EF600E11A28 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8870CF22957EF600E11A28 /* Client.swift */; };
+		1B8870D222957F0100E11A28 /* Instructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8870D122957F0100E11A28 /* Instructor.swift */; };
+		1B8870D422957F1300E11A28 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8870D322957F1300E11A28 /* Workout.swift */; };
+		1B8870D622957F1D00E11A28 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8870D522957F1D00E11A28 /* Location.swift */; };
+		1B8870D822957F4500E11A28 /* PunchPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8870D722957F4500E11A28 /* PunchPass.swift */; };
 		1BB03E6E229336B800603B43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB03E6D229336B800603B43 /* AppDelegate.swift */; };
 		1BB03E73229336B800603B43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BB03E71229336B800603B43 /* Main.storyboard */; };
 		1BB03E75229336B900603B43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BB03E74229336B900603B43 /* Assets.xcassets */; };
@@ -16,6 +21,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B8870CF22957EF600E11A28 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		1B8870D122957F0100E11A28 /* Instructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instructor.swift; sourceTree = "<group>"; };
+		1B8870D322957F1300E11A28 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		1B8870D522957F1D00E11A28 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		1B8870D722957F4500E11A28 /* PunchPass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PunchPass.swift; sourceTree = "<group>"; };
 		1BB03E6A229336B800603B43 /* Anywhere Fitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Anywhere Fitness.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BB03E6D229336B800603B43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BB03E72229336B800603B43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -37,6 +47,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B8870CE22957ED900E11A28 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1B8870CF22957EF600E11A28 /* Client.swift */,
+				1B8870D122957F0100E11A28 /* Instructor.swift */,
+				1B8870D322957F1300E11A28 /* Workout.swift */,
+				1B8870D522957F1D00E11A28 /* Location.swift */,
+				1B8870D722957F4500E11A28 /* PunchPass.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		1BB03E61229336B800603B43 = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +78,7 @@
 		1BB03E6C229336B800603B43 /* Anywhere Fitness */ = {
 			isa = PBXGroup;
 			children = (
+				1B8870CE22957ED900E11A28 /* Models */,
 				1BB03E6D229336B800603B43 /* AppDelegate.swift */,
 				1BB03E71229336B800603B43 /* Main.storyboard */,
 				1BC9CCED2294305100EB80E1 /* SignUpViewController.swift */,
@@ -140,7 +163,12 @@
 			files = (
 				1BC9CCEE2294305100EB80E1 /* SignUpViewController.swift in Sources */,
 				1BB03E6E229336B800603B43 /* AppDelegate.swift in Sources */,
+				1B8870D022957EF600E11A28 /* Client.swift in Sources */,
+				1B8870D222957F0100E11A28 /* Instructor.swift in Sources */,
 				1BC9CCEC22942B7500EB80E1 /* landingPageViewController.swift in Sources */,
+				1B8870D422957F1300E11A28 /* Workout.swift in Sources */,
+				1B8870D622957F1D00E11A28 /* Location.swift in Sources */,
+				1B8870D822957F4500E11A28 /* PunchPass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

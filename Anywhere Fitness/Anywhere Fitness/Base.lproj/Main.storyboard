@@ -1553,11 +1553,11 @@
             </objects>
             <point key="canvasLocation" x="2929" y="763"/>
         </scene>
-        <!--Your Class-->
+        <!--Your Classes-->
         <scene sceneID="nlN-Sw-e2T">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d4U-bE-Hnf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Your Class" id="8IE-rN-YPq"/>
+                    <tabBarItem key="tabBarItem" title="Your Classes" id="8IE-rN-YPq"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="nzO-AZ-yj1">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
