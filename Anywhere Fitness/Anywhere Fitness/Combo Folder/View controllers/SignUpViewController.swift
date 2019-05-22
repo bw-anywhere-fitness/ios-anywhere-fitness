@@ -10,6 +10,7 @@ import UIKit
 
 class SignUpViewController: UIViewController {
     var cc = ClientController()
+    
     var isInstructor = false
     var hasTrainingCert = false
 
@@ -19,9 +20,6 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var confirmPwTF: UITextField!
-    
-    
-    
     
     //MARK: - More IBOutlets
     @IBOutlet weak var switchProperties: UISwitch!
@@ -36,13 +34,16 @@ class SignUpViewController: UIViewController {
         
     }
     
+    //MARK: - IBActions
     @IBAction func cprFirstAidButton(_ sender: UIButton) {
+        //do something
         
     }
     
     @IBAction func trainingCertButton(_ sender: UIButton) {
+        hasTrainingCert = true
     }
-    //MARK: - IBActions
+    
     @IBAction func switchValueChanged(_ sender: UISwitch) {
         if sender.isOn {
             isInstructor = true
@@ -73,10 +74,9 @@ class SignUpViewController: UIViewController {
                 } else {
                     self.performSegue(withIdentifier: "ClientSegue", sender: self)
                 }
-                
+
             }
         }
-        
     }
     
     @IBAction func signUPButtonPressed(_ sender: UIButton) {
@@ -97,7 +97,6 @@ class SignUpViewController: UIViewController {
                 } else {
                     self.performSegue(withIdentifier: "ClientSegue", sender: self)
                 }
-                
             }
         }
     }

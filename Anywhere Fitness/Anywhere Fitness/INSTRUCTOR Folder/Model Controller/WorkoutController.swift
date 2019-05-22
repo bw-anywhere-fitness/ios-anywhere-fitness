@@ -14,6 +14,12 @@ class WorkoutController {
     var workouts: [Workout] = []
     var bearer: Bearer?
     
+    
+    func createWorkout(id: Int?, name: String, schedule: String, location: String, image: String?, instructorID: Int?) -> Workout {
+        let newWorkout = Workout(id: id, name: name, schedule: schedule, location: location, image: image, instructorID: instructorID)
+        return newWorkout
+    }
+    
     func postWorkout(with workout: Workout, completion: @escaping (Error?) -> Void) {
         let url = baseURL
         var request = URLRequest(url: url)
@@ -31,9 +37,19 @@ class WorkoutController {
             return
         }
         
-        
-        
-        
+        URLSession.shared.dataTask(with: request) { (_, response, error) in
+            if let response = response as? HTTPURLResponse {
+                print("This is the response for posting workouts: \(response) and the status: \(response.statusCode)")
+                completion(NSError())
+                return
+            }
+            
+            if let error = error {
+                print("Error with posting workouts to server: \(error.localizedDescription)")
+                completion(error)
+                return
+            }
+        }
     }
     
     func fetchWorkouts(completion: @escaping ([Workout]?, Error?) -> Void ){
@@ -70,7 +86,6 @@ class WorkoutController {
             do {
                 let workouts = try jD.decode([Workout].self, from: data)
                 completion(workouts, nil)
-                self.workouts = workouts
                 print("This is all the workouts: \(workouts)")
             } catch {
                 print("Error decoding the data trying to fetch all workouts: \(error.localizedDescription)")
