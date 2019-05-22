@@ -14,6 +14,16 @@
 		1B8870D822957F4500E11A28 /* PunchPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8870D722957F4500E11A28 /* PunchPass.swift */; };
 		1B8870DC2295839300E11A28 /* ClientController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8870DB2295839300E11A28 /* ClientController.swift */; };
 		1B8870E0229584A600E11A28 /* Bearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8870DF229584A600E11A28 /* Bearer.swift */; };
+		1B8870ED2295894000E11A28 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8870EC2295894000E11A28 /* SearchViewController.swift */; };
+		1B8870EF2295897700E11A28 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8870EE2295897700E11A28 /* SettingsViewController.swift */; };
+		1B8870F1229589A700E11A28 /* PurchasePassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8870F0229589A700E11A28 /* PurchasePassViewController.swift */; };
+		1B8870F522958A2800E11A28 /* WorkoutListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8870F422958A2800E11A28 /* WorkoutListTableViewController.swift */; };
+		1B8870F722958A4C00E11A28 /* WorkoutDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8870F622958A4C00E11A28 /* WorkoutDetailViewController.swift */; };
+		1B8870F922958A8100E11A28 /* ProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8870F822958A8100E11A28 /* ProfilePageViewController.swift */; };
+		1B8870FB22958AC100E11A28 /* YourClassTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8870FA22958AC100E11A28 /* YourClassTableViewController.swift */; };
+		1B8870FD22958AE800E11A28 /* DetailYourClassTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8870FC22958AE800E11A28 /* DetailYourClassTableViewController.swift */; };
+		1B88710022958B4300E11A28 /* InstructorsAttendanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8870FF22958B4300E11A28 /* InstructorsAttendanceTableViewCell.swift */; };
+		1B88710222958B8700E11A28 /* AddClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B88710122958B8700E11A28 /* AddClassViewController.swift */; };
 		1BB03E6E229336B800603B43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB03E6D229336B800603B43 /* AppDelegate.swift */; };
 		1BB03E73229336B800603B43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BB03E71229336B800603B43 /* Main.storyboard */; };
 		1BB03E75229336B900603B43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BB03E74229336B900603B43 /* Assets.xcassets */; };
@@ -30,6 +40,16 @@
 		1B8870D722957F4500E11A28 /* PunchPass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PunchPass.swift; sourceTree = "<group>"; };
 		1B8870DB2295839300E11A28 /* ClientController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientController.swift; sourceTree = "<group>"; };
 		1B8870DF229584A600E11A28 /* Bearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bearer.swift; sourceTree = "<group>"; };
+		1B8870EC2295894000E11A28 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		1B8870EE2295897700E11A28 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		1B8870F0229589A700E11A28 /* PurchasePassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasePassViewController.swift; sourceTree = "<group>"; };
+		1B8870F422958A2800E11A28 /* WorkoutListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutListTableViewController.swift; sourceTree = "<group>"; };
+		1B8870F622958A4C00E11A28 /* WorkoutDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailViewController.swift; sourceTree = "<group>"; };
+		1B8870F822958A8100E11A28 /* ProfilePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageViewController.swift; sourceTree = "<group>"; };
+		1B8870FA22958AC100E11A28 /* YourClassTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourClassTableViewController.swift; sourceTree = "<group>"; };
+		1B8870FC22958AE800E11A28 /* DetailYourClassTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailYourClassTableViewController.swift; sourceTree = "<group>"; };
+		1B8870FF22958B4300E11A28 /* InstructorsAttendanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorsAttendanceTableViewCell.swift; sourceTree = "<group>"; };
+		1B88710122958B8700E11A28 /* AddClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClassViewController.swift; sourceTree = "<group>"; };
 		1BB03E6A229336B800603B43 /* Anywhere Fitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Anywhere Fitness.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BB03E6D229336B800603B43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BB03E72229336B800603B43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -79,6 +99,7 @@
 		1B8870E1229587B200E11A28 /* Instructors Folder */ = {
 			isa = PBXGroup;
 			children = (
+				1B8870EB2295891D00E11A28 /* Table View Controllers */,
 				1B8870E4229587DB00E11A28 /* View Controller */,
 				1B8870E3229587D300E11A28 /* Model Controller */,
 				1B8870E2229587CA00E11A28 /* Model */,
@@ -107,6 +128,7 @@
 		1B8870E4229587DB00E11A28 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1B88710122958B8700E11A28 /* AddClassViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -114,6 +136,8 @@
 		1B8870E52295882F00E11A28 /* Client Folder */ = {
 			isa = PBXGroup;
 			children = (
+				1B8870EA2295891200E11A28 /* Table View controllers */,
+				1B8870E92295890700E11A28 /* View controllers */,
 				1B8870DA2295838000E11A28 /* Model Controller */,
 				1B8870CE22957ED900E11A28 /* Models */,
 			);
@@ -142,10 +166,48 @@
 		1B8870E82295889100E11A28 /* View controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1B8870EE2295897700E11A28 /* SettingsViewController.swift */,
 				1BC9CCED2294305100EB80E1 /* SignUpViewController.swift */,
 				1BC9CCEB22942B7500EB80E1 /* landingPageViewController.swift */,
 			);
 			path = "View controllers";
+			sourceTree = "<group>";
+		};
+		1B8870E92295890700E11A28 /* View controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1B8870F822958A8100E11A28 /* ProfilePageViewController.swift */,
+				1B8870F622958A4C00E11A28 /* WorkoutDetailViewController.swift */,
+				1B8870F0229589A700E11A28 /* PurchasePassViewController.swift */,
+				1B8870EC2295894000E11A28 /* SearchViewController.swift */,
+			);
+			path = "View controllers";
+			sourceTree = "<group>";
+		};
+		1B8870EA2295891200E11A28 /* Table View controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1B8870F422958A2800E11A28 /* WorkoutListTableViewController.swift */,
+			);
+			path = "Table View controllers";
+			sourceTree = "<group>";
+		};
+		1B8870EB2295891D00E11A28 /* Table View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1B8870FC22958AE800E11A28 /* DetailYourClassTableViewController.swift */,
+				1B8870FA22958AC100E11A28 /* YourClassTableViewController.swift */,
+				1B8870FE22958AF400E11A28 /* Table View Cells */,
+			);
+			path = "Table View Controllers";
+			sourceTree = "<group>";
+		};
+		1B8870FE22958AF400E11A28 /* Table View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				1B8870FF22958B4300E11A28 /* InstructorsAttendanceTableViewCell.swift */,
+			);
+			path = "Table View Cells";
 			sourceTree = "<group>";
 		};
 		1BB03E61229336B800603B43 = {
@@ -247,16 +309,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B8870FD22958AE800E11A28 /* DetailYourClassTableViewController.swift in Sources */,
 				1B8870E0229584A600E11A28 /* Bearer.swift in Sources */,
+				1B8870ED2295894000E11A28 /* SearchViewController.swift in Sources */,
 				1BC9CCEE2294305100EB80E1 /* SignUpViewController.swift in Sources */,
+				1B88710022958B4300E11A28 /* InstructorsAttendanceTableViewCell.swift in Sources */,
 				1BB03E6E229336B800603B43 /* AppDelegate.swift in Sources */,
+				1B8870F522958A2800E11A28 /* WorkoutListTableViewController.swift in Sources */,
+				1B8870F722958A4C00E11A28 /* WorkoutDetailViewController.swift in Sources */,
 				1B8870D022957EF600E11A28 /* Client.swift in Sources */,
+				1B8870F922958A8100E11A28 /* ProfilePageViewController.swift in Sources */,
 				1B8870D222957F0100E11A28 /* Instructor.swift in Sources */,
+				1B8870F1229589A700E11A28 /* PurchasePassViewController.swift in Sources */,
 				1BC9CCEC22942B7500EB80E1 /* landingPageViewController.swift in Sources */,
+				1B88710222958B8700E11A28 /* AddClassViewController.swift in Sources */,
 				1B8870D422957F1300E11A28 /* Workout.swift in Sources */,
 				1B8870D622957F1D00E11A28 /* Location.swift in Sources */,
 				1B8870DC2295839300E11A28 /* ClientController.swift in Sources */,
 				1B8870D822957F4500E11A28 /* PunchPass.swift in Sources */,
+				1B8870FB22958AC100E11A28 /* YourClassTableViewController.swift in Sources */,
+				1B8870EF2295897700E11A28 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
