@@ -9,7 +9,7 @@
 import Foundation
 
 //should this be an emum?
-struct PunchPass {
+struct PunchPass: Codable {
     var day: Int
     var price: Double
 }

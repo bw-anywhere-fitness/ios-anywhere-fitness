@@ -54,11 +54,8 @@
 		1B8870CE22957ED900E11A28 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1B8870DF229584A600E11A28 /* Bearer.swift */,
 				1B8870CF22957EF600E11A28 /* Client.swift */,
-				1B8870D122957F0100E11A28 /* Instructor.swift */,
-				1B8870D322957F1300E11A28 /* Workout.swift */,
-				1B8870D522957F1D00E11A28 /* Location.swift */,
-				1B8870D722957F4500E11A28 /* PunchPass.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -77,6 +74,78 @@
 				1B8870DB2295839300E11A28 /* ClientController.swift */,
 			);
 			path = "Model Controller";
+			sourceTree = "<group>";
+		};
+		1B8870E1229587B200E11A28 /* Instructors Folder */ = {
+			isa = PBXGroup;
+			children = (
+				1B8870E4229587DB00E11A28 /* View Controller */,
+				1B8870E3229587D300E11A28 /* Model Controller */,
+				1B8870E2229587CA00E11A28 /* Model */,
+			);
+			path = "Instructors Folder";
+			sourceTree = "<group>";
+		};
+		1B8870E2229587CA00E11A28 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1B8870D122957F0100E11A28 /* Instructor.swift */,
+				1B8870D322957F1300E11A28 /* Workout.swift */,
+				1B8870D522957F1D00E11A28 /* Location.swift */,
+				1B8870D722957F4500E11A28 /* PunchPass.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1B8870E3229587D300E11A28 /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Model Controller";
+			sourceTree = "<group>";
+		};
+		1B8870E4229587DB00E11A28 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		1B8870E52295882F00E11A28 /* Client Folder */ = {
+			isa = PBXGroup;
+			children = (
+				1B8870DA2295838000E11A28 /* Model Controller */,
+				1B8870CE22957ED900E11A28 /* Models */,
+			);
+			path = "Client Folder";
+			sourceTree = "<group>";
+		};
+		1B8870E62295886100E11A28 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1BB03E6D229336B800603B43 /* AppDelegate.swift */,
+				1BB03E74229336B900603B43 /* Assets.xcassets */,
+				1BB03E76229336B900603B43 /* LaunchScreen.storyboard */,
+				1BB03E79229336B900603B43 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1B8870E72295887C00E11A28 /* Combo Folder */ = {
+			isa = PBXGroup;
+			children = (
+				1B8870E82295889100E11A28 /* View controllers */,
+			);
+			path = "Combo Folder";
+			sourceTree = "<group>";
+		};
+		1B8870E82295889100E11A28 /* View controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1BC9CCED2294305100EB80E1 /* SignUpViewController.swift */,
+				1BC9CCEB22942B7500EB80E1 /* landingPageViewController.swift */,
+			);
+			path = "View controllers";
 			sourceTree = "<group>";
 		};
 		1BB03E61229336B800603B43 = {
@@ -98,16 +167,11 @@
 		1BB03E6C229336B800603B43 /* Anywhere Fitness */ = {
 			isa = PBXGroup;
 			children = (
-				1B8870DF229584A600E11A28 /* Bearer.swift */,
-				1B8870DA2295838000E11A28 /* Model Controller */,
-				1B8870CE22957ED900E11A28 /* Models */,
-				1BB03E6D229336B800603B43 /* AppDelegate.swift */,
 				1B8870D9229582FC00E11A28 /* Storyboard */,
-				1BC9CCED2294305100EB80E1 /* SignUpViewController.swift */,
-				1BC9CCEB22942B7500EB80E1 /* landingPageViewController.swift */,
-				1BB03E74229336B900603B43 /* Assets.xcassets */,
-				1BB03E76229336B900603B43 /* LaunchScreen.storyboard */,
-				1BB03E79229336B900603B43 /* Info.plist */,
+				1B8870E72295887C00E11A28 /* Combo Folder */,
+				1B8870E52295882F00E11A28 /* Client Folder */,
+				1B8870E1229587B200E11A28 /* Instructors Folder */,
+				1B8870E62295886100E11A28 /* Resources */,
 			);
 			path = "Anywhere Fitness";
 			sourceTree = "<group>";
@@ -340,7 +404,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X4W7EQ4E4R;
-				INFOPLIST_FILE = "Anywhere Fitness/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Anywhere Fitness/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -358,7 +422,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X4W7EQ4E4R;
-				INFOPLIST_FILE = "Anywhere Fitness/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Anywhere Fitness/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

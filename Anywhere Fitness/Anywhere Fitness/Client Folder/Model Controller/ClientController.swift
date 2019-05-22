@@ -9,8 +9,10 @@
 import Foundation
 
 class ClientController {
+    
+    let clients: [Client] = []
     //get the base url
     private let baseURL = URL(string: "https://anywhere-fitness.herokuapp.com/")!
     
-    //post to get auth
+    
 }
