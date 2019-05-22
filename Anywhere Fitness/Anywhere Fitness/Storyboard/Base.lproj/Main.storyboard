@@ -180,7 +180,7 @@
                                 </constraints>
                                 <state key="normal" title="Add A New Class"/>
                                 <connections>
-                                    <segue destination="2ff-cS-8Ya" kind="show" identifier="AddClassSegue" id="PTP-He-Rfx"/>
+                                    <action selector="segueToAddClass:" destination="CAj-oP-zo3" eventType="touchUpInside" id="Z6F-ku-y85"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h3H-EY-1CL">
@@ -191,7 +191,7 @@
                                 </constraints>
                                 <state key="normal" title="Your Classes"/>
                                 <connections>
-                                    <segue destination="ftG-hi-30Z" kind="show" identifier="YourClassSegue" id="ZRz-M7-RnE"/>
+                                    <action selector="segueToYourClass:" destination="CAj-oP-zo3" eventType="touchUpInside" id="Tkg-ip-r9N"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -212,6 +212,12 @@
                             <barButtonItem title="Settings" id="jYl-0M-vup"/>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addANewClassProperties" destination="w7O-Yk-Q60" id="nIA-6U-0TD"/>
+                        <outlet property="yourClassProperties" destination="h3H-EY-1CL" id="5Ji-4R-PUj"/>
+                        <segue destination="ftG-hi-30Z" kind="show" identifier="YourClassSegue" id="33I-BO-9c8"/>
+                        <segue destination="2ff-cS-8Ya" kind="show" identifier="AddClassSegue" id="tlu-bV-mMi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kNf-g2-EvS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -339,7 +345,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NFg-th-nuU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4586.9565217391309" y="-839.0625"/>
+            <point key="canvasLocation" x="4575" y="-806"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="Tbb-cS-sAL">

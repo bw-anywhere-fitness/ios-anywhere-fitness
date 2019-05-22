@@ -9,6 +9,8 @@
 import UIKit
 
 class AddClassViewController: UIViewController {
+    
+    var client: Client?
 
     override func viewDidLoad() {
         super.viewDidLoad()

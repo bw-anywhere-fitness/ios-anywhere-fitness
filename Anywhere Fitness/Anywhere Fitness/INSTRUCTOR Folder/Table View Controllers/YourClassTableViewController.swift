@@ -10,7 +10,7 @@ import UIKit
 
 class YourClassTableViewController: UITableViewController {
 
-    
+    var client: Client?
     
     override func viewDidLoad() {
         super.viewDidLoad()

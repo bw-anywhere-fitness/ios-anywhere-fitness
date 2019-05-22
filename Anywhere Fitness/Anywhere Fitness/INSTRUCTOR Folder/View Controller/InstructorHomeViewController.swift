@@ -15,22 +15,49 @@ class InstructorHomeViewController: UIViewController {
             print("client was passed through/in and junk.")
         }
     }
+    @IBOutlet weak var yourClassProperties: UIButton!
+    @IBOutlet weak var addANewClassProperties: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    @IBAction func segueToYourClass(_ sender: UIButton) {
+        if client == nil {
+            print("Client is empty")
+            return
+        } else {
+            performSegue(withIdentifier: "YourClassSegue", sender: self)
+        }
+    }
     
-
-    /*
+    @IBAction func segueToAddClass(_ sender: UIButton) {
+        if client == nil {
+            print("Client is empty")
+            return
+        } else {
+            performSegue(withIdentifier: "AddClassSegue", sender: self)
+        }
+    }
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "YourClassSegue" {
+            guard let yourClassVC = segue.destination as? YourClassTableViewController, let client = client else { return }
+            yourClassVC.client = client
+        }
+        
+        if segue.identifier == "AddClassSegue" {
+            guard let addClassVC = segue.destination as? AddClassViewController, let client = client else { return }
+            addClassVC.client = client
+        }
+        
     }
-    */
+    
 
 }
