@@ -10,6 +10,7 @@ import UIKit
 
 class SignUpViewController: UIViewController {
     var cc = ClientController()
+    var client: Client?
     
     var isInstructor = false
     var hasTrainingCert = false
@@ -70,8 +71,10 @@ class SignUpViewController: UIViewController {
                 print("Sign in worked")
                 self.view.backgroundColor = .magenta
                 if client.instructor {
+                    self.client = client
                     self.performSegue(withIdentifier: "InstructorSegue", sender: self)
                 } else {
+                    self.client = client
                     self.performSegue(withIdentifier: "ClientSegue", sender: self)
                 }
 
@@ -93,22 +96,33 @@ class SignUpViewController: UIViewController {
                 print("Print It worked")
                 self.view.backgroundColor = .green
                 if self.isInstructor && self.hasTrainingCert {
+                    self.client = client
                     self.performSegue(withIdentifier: "InstructorSegue", sender: self)
                 } else {
+                    self.client = client
                     self.performSegue(withIdentifier: "ClientSegue", sender: self)
                 }
             }
         }
     }
     
-    /*
+  
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+      
+        //pass the client to the appropriate place
+        if segue.identifier == "InstructorSegue" {
+            guard let instructorVC = segue.destination as? InstructorHomeViewController, let client = client else { return }
+            instructorVC.client = client
+        }
+        
+        if segue.identifier == "ClientSegue" {
+            guard let workoutListVC = segue.destination as? WorkoutListViewController, let client = client else { return }
+            workoutListVC.client = client
+        }
     }
-    */
+   
 
 }

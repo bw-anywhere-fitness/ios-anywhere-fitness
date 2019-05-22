@@ -1,5 +1,5 @@
 //
-//  WorkoutListViewController.swift
+//  InstructorHomeViewController.swift
 //  Anywhere Fitness
 //
 //  Created by Michael Flowers on 5/22/19.
@@ -8,9 +8,13 @@
 
 import UIKit
 
-class WorkoutListViewController: UIViewController {
+class InstructorHomeViewController: UIViewController {
 
-    var client: Client?
+    var client: Client? {
+        didSet {
+            print("client was passed through/in and junk.")
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B6A92962295FF8100E6C575 /* InstructorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6A92952295FF8100E6C575 /* InstructorController.swift */; };
+		1B6A92982296014900E6C575 /* InstructorHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6A92972296014900E6C575 /* InstructorHomeViewController.swift */; };
 		1B8870D022957EF600E11A28 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8870CF22957EF600E11A28 /* Client.swift */; };
 		1B8870D222957F0100E11A28 /* Instructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8870D122957F0100E11A28 /* Instructor.swift */; };
 		1B8870D422957F1300E11A28 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8870D322957F1300E11A28 /* Workout.swift */; };
@@ -37,6 +39,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B6A92952295FF8100E6C575 /* InstructorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorController.swift; sourceTree = "<group>"; };
+		1B6A92972296014900E6C575 /* InstructorHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructorHomeViewController.swift; sourceTree = "<group>"; };
 		1B8870CF22957EF600E11A28 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		1B8870D122957F0100E11A28 /* Instructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instructor.swift; sourceTree = "<group>"; };
 		1B8870D322957F1300E11A28 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
@@ -130,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				1B88710E2295E6AE00E11A28 /* WorkoutController.swift */,
+				1B6A92952295FF8100E6C575 /* InstructorController.swift */,
 			);
 			path = "Model Controller";
 			sourceTree = "<group>";
@@ -137,6 +142,7 @@
 		1B8870E4229587DB00E11A28 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1B6A92972296014900E6C575 /* InstructorHomeViewController.swift */,
 				1B88710122958B8700E11A28 /* AddClassViewController.swift */,
 			);
 			path = "View Controller";
@@ -337,6 +343,7 @@
 				1B8870ED2295894000E11A28 /* SearchViewController.swift in Sources */,
 				1BC9CCEE2294305100EB80E1 /* SignUpViewController.swift in Sources */,
 				1B88710022958B4300E11A28 /* InstructorsAttendanceTableViewCell.swift in Sources */,
+				1B6A92982296014900E6C575 /* InstructorHomeViewController.swift in Sources */,
 				1BB03E6E229336B800603B43 /* AppDelegate.swift in Sources */,
 				1B88710422958C5100E11A28 /* SearchCellTableViewCell.swift in Sources */,
 				1B8870F722958A4C00E11A28 /* WorkoutDetailViewController.swift in Sources */,
@@ -351,6 +358,7 @@
 				1B8870D622957F1D00E11A28 /* Location.swift in Sources */,
 				1B8870DC2295839300E11A28 /* ClientController.swift in Sources */,
 				1B8870D822957F4500E11A28 /* PunchPass.swift in Sources */,
+				1B6A92962295FF8100E6C575 /* InstructorController.swift in Sources */,
 				1B8870FB22958AC100E11A28 /* YourClassTableViewController.swift in Sources */,
 				1B8870EF2295897700E11A28 /* SettingsViewController.swift in Sources */,
 			);
