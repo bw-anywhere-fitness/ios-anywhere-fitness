@@ -38,11 +38,11 @@ class landingPageViewController: UIViewController {
     //MARK: - IBActions
     
     @IBAction func signUpButtonPressed(_ sender: UIButton) {
-        
+        //CHECK TO SEE IF TEXTFIELDS ARE ENTERED, CHECK THE ENTERED DATA, ONCE CHECKED AND CONFIRMED SEGUE TO "COLLECTION VIEW OF CLASSES"
         
     }
     @IBAction func signInButtonPressed(_ sender: UIButton) {
-        guard let email = EmailTF.text, !email.isEmpty, let password = passwordTF.text, !password.isEmpty, let code = trainerCodeTF.text, !code.isEmpty else { return }
+       //REALLY DON'T NEED THIS BUTTON. WHEN PRESSED IT WILL SEGUE TO THE SIGNUP SCENE
         
     }
     

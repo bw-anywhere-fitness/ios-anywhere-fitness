@@ -40,6 +40,8 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func confirmButtonPressed(_ sender: UIButton) {
+        
+        //TAKES YOU BACK TO THE LANDING PAGE SO THAT THE USER CAN SIGNIN
     }
     
     /*
