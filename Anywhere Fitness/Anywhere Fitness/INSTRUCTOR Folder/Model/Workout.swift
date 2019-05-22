@@ -9,8 +9,6 @@
 import Foundation
 
 struct Workout: Codable {
-    
-    //does everything below here have to be on the api documentation for parsing purposes?
     let location: Location
     let instructor: Instructor
     let punchPass: PunchPass?

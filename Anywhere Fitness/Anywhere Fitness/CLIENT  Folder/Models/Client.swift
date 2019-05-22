@@ -9,6 +9,7 @@
 import Foundation
 
 struct Client: Codable {
+    //does everything below here have to be on the api documentation for parsing purposes?
     let username: String
     let password: String
     let instructor: Bool

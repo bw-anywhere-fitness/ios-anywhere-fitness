@@ -581,6 +581,9 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="61" id="VMw-vY-b8W"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="testButton:" destination="gJa-ZJ-2GX" eventType="touchUpInside" id="DNk-lH-vUC"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HzL-KH-DSs">
                                 <rect key="frame" x="80" y="637" width="61" height="45"/>

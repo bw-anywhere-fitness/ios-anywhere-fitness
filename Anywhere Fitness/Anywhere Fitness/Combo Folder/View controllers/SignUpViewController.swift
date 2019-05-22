@@ -31,6 +31,11 @@ class SignUpViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func testButton(_ sender: UIButton) {
+        guard let name = firstNameTF.text, !name.isEmpty, let password = confirmPwTF.text, !password.isEmpty else { return }
+       
+        
+    }
     
     //MARK: - IBActions
     @IBAction func switchValueChanged(_ sender: UISwitch) {
