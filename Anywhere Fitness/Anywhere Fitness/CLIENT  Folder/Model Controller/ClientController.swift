@@ -10,7 +10,7 @@ import Foundation
 
 class ClientController {
     
-    let clients: [Client] = []
+    var clients: [Client] = []
     var bearer: Bearer?
     //get the base url
     private let baseURL = URL(string: "https://anywhere-fitness.herokuapp.com/")!
@@ -59,7 +59,7 @@ class ClientController {
                 return
             }
             completion(nil)
-        }.resume()
+            }.resume()
     }
     
     
@@ -75,7 +75,7 @@ class ClientController {
         
         do {
             let jsonData = try jE.encode(client)
-           request.httpBody = jsonData
+            request.httpBody = jsonData
         } catch  {
             print("Error decoding the client while signing in: \(error.localizedDescription)")
             completion(error)
@@ -113,6 +113,8 @@ class ClientController {
     //DELETE CLIENT FROM CLASS BY WORKOUT ID FOR CLIENTS_ this returns an array of classes the client is signed up for
     //send class id in the url string and the user id in the body of the request
     func delete(client: Client, fromWorkout workout: Workout, completion: @escaping (Error?) -> Void ){
+        guard let clientToDelete = clients.firstIndex(of: client) else { return }
+        clients.remove(at: clientToDelete)
         
         guard let bearer = bearer else {
             print("Problem withthe bearer inside the delete workout by instructor id")
@@ -121,7 +123,81 @@ class ClientController {
         }
         
         let url = baseURL.appendingPathComponent("remove").appendingPathComponent("\(workout.id)").appendingPathComponent("client")
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        request.addValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
         
+        let jE = JSONEncoder()
+        
+        do {
+            let jsonData =  try jE.encode(client.id)
+            request.httpBody = jsonData
+        } catch  {
+            print("error encoding the client to delete using its workoutID: \(error.localizedDescription)")
+            completion(error)
+            return
+        }
+        
+        URLSession.shared.dataTask(with: request) { (_, response, error) in
+            if let response = response as? HTTPURLResponse {
+                print("Response from trying to delete client by workoutID is: \(response) and status: \(response.statusCode)")
+                completion(NSError())
+                return
+            }
+            
+            if let error = error {
+                print("Error making network call trying to delete client via workoutID: \(error.localizedDescription)")
+                completion(error)
+                return
+            }
+            
+            completion(nil)
+            }.resume()
     }
-
+    
+    //DELETE CLIENT FROM WORKOUT BY WORKOUT ID FOR INSTRUCTORS
+    //SEND WORKOUT ID IN THE URL STRING AND THE USER ID IN THE BODY OF THE REQUEST
+    
+    func deleteClientFromClass(client: Client, fromClass theClass: Workout, completion: @escaping (Error?) -> Void ){
+        guard let clientToDelete = clients.firstIndex(of: client) else { return }
+        clients.remove(at: clientToDelete)
+        
+        guard let bearer = bearer else {
+            print("Problem withthe bearer inside the delete workout by instructor id")
+            completion(NSError())
+            return
+        }
+        
+        let url = baseURL.appendingPathComponent("remove").appendingPathComponent("\(theClass.id)").appendingPathComponent("instructor")
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        request.addValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
+        
+        let jE = JSONEncoder()
+        
+        do {
+            let jsonData =  try jE.encode(client.id)
+            request.httpBody = jsonData
+        } catch  {
+            print("error encoding the client to delete using its theClassID: \(error.localizedDescription)")
+            completion(error)
+            return
+        }
+        
+        URLSession.shared.dataTask(with: request) { (_, response, error) in
+            if let response = response as? HTTPURLResponse {
+                print("Response from trying to delete client by theClassID is: \(response) and status: \(response.statusCode)")
+                completion(NSError())
+                return
+            }
+            
+            if let error = error {
+                print("Error making network call trying to delete client via theClassID: \(error.localizedDescription)")
+                completion(error)
+                return
+            }
+            
+            completion(nil)
+            }.resume()
+    }
 }
