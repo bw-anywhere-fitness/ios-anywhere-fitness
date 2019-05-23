@@ -19,3 +19,11 @@ struct Client: Codable {
     let passes: [PunchPass]?
     let id: Int?
 }
+
+extension Client: Equatable {
+    static func == (lhs: Client, rhs: Client) -> Bool {
+        return lhs.username == rhs.username && lhs.id == rhs.id && lhs.workouts == rhs.workouts
+    }
+    
+    
+}

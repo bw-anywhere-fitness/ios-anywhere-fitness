@@ -108,5 +108,20 @@ class ClientController {
             completion(nil)
             }.resume()
     }
+    
+    //this might need to go in the client controller
+    //DELETE CLIENT FROM CLASS BY WORKOUT ID FOR CLIENTS_ this returns an array of classes the client is signed up for
+    //send class id in the url string and the user id in the body of the request
+    func delete(client: Client, fromWorkout workout: Workout, completion: @escaping (Error?) -> Void ){
+        
+        guard let bearer = bearer else {
+            print("Problem withthe bearer inside the delete workout by instructor id")
+            completion(NSError())
+            return
+        }
+        
+        let url = baseURL.appendingPathComponent("remove").appendingPathComponent("\(workout.id)").appendingPathComponent("client")
+        
+    }
 
 }

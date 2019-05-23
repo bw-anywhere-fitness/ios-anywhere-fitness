@@ -250,9 +250,5 @@ class WorkoutController {
         }.resume()
     }
     
-    //DELETE CLIENT FROM CLASS BY WORKOUT ID FOR CLIENTS_ this returns an array of classes the client is signed up for
-    //send class id in the url string and the user id in the body of the request
-    func delete(client: Client, fromWorkout workout: Workout, completion: @escaping (Error?) -> Void ){
-        
-    }
+    
 }
