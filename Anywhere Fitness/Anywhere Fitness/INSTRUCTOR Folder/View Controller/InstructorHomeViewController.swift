@@ -9,32 +9,28 @@
 import UIKit
 
 class InstructorHomeViewController: UIViewController {
-
+    
+    //MARK: - Properties
     var client: Client? {
         didSet {
             print("client was passed through/in and junk.")
         }
     }
-//    var wc: WorkoutController? {
-//        didSet {
-//            print("workoutController was set.")
-//        }
-//    }
-    
-        var cc: ClientController? {
-            didSet {
-                print("ClientController was set.")
-            }
+    var cc: ClientController? {
+        didSet {
+            print("ClientController was set.")
         }
+    }
     
+    //MARK: - IBOutlets
     @IBOutlet weak var yourClassProperties: UIButton!
     @IBOutlet weak var addANewClassProperties: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
+    
+    //MARK: - IBActions
     @IBAction func segueToYourClass(_ sender: UIButton) {
         if client == nil {
             print("Client is empty")
@@ -55,7 +51,7 @@ class InstructorHomeViewController: UIViewController {
     
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -73,5 +69,5 @@ class InstructorHomeViewController: UIViewController {
         
     }
     
-
+    
 }

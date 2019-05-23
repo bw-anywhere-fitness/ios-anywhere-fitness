@@ -16,14 +16,6 @@ class AddClassViewController: UIViewController {
         }
     }
     
-//    var wc: WorkoutController? {
-//        didSet {
-//            print("AddClassViewController: wc is set.")
-//
-////        }
-//    }
-    
-    
     var cc: ClientController? {
         didSet {
             print("ClientController was set.")
@@ -43,6 +35,31 @@ class AddClassViewController: UIViewController {
     
     //MARK: - IBActions
     @IBAction func addPhoto(_ sender: UIButton) {
+        guard let cc = cc, let myClient = client else { return }
+        
+        cc.wc.fetchClasses { (workouts, error) in
+            if let error = error {
+                print("Error pulling down workouts by client ID : \(error.localizedDescription)")
+                return
+            }
+            
+            DispatchQueue.main.async {
+                print("These are the workouts we got back :\(workouts)")
+                self.view.backgroundColor = .magenta
+            }
+        }
+        
+//        cc.wc.fetchClassesBy(instructor: myClient) { (workouts, error) in
+//            if let error = error {
+//                print("Error pulling down workouts by client ID : \(error.localizedDescription)")
+//                return
+//            }
+//
+//            DispatchQueue.main.async {
+//                print("These are the workouts we got back :\(workouts)")
+//                self.view.backgroundColor = .magenta
+//            }
+//        }
     }
     
     @IBAction func datePickerValueChanged(_ sender: UIDatePicker) {
@@ -52,7 +69,7 @@ class AddClassViewController: UIViewController {
         guard let className = classNameTF.text, !className.isEmpty, let type = typeOfClassTF.text, !type.isEmpty, let location = locationTF.text, !location.isEmpty, let cc = cc else {
             print("Problem with the guard let.")
             return }
-        let workout = cc.wc.createClass(id: nil, name: className, schedule: "Tuesday Morning", location: location, image: nil, instructorID: client?.id, punchPass: nil, clients: nil)
+        let workout = cc.wc.createClass(id: nil, name: className, schedule: "Tuesday Morning", location: location, image: nil, instructorId: client?.id, punchPass: nil, clients: nil)
         print("this is the workout: \(workout)")
         
         cc.wc.postClass(with: workout) { (error) in

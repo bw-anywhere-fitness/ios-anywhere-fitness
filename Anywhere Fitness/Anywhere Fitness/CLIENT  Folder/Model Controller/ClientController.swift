@@ -10,9 +10,9 @@ import Foundation
 
 class ClientController {
     var wc = WorkoutController()
-    
     var clients: [Client] = []
     var bearer: Bearer?
+    
     //get the base url
     private let baseURL = URL(string: "https://anywhere-fitness.herokuapp.com/")!
     
@@ -53,7 +53,6 @@ class ClientController {
             
             do {
                 self.bearer = try jD.decode(Bearer.self, from: data)
-//                client.bearer = self.bearer
                 self.wc.bearer = self.bearer
                 print("this is the bearer: \(self.bearer?.token)")
             } catch {
@@ -123,10 +122,11 @@ class ClientController {
         let url = baseURL.appendingPathComponent("\(workoutID.id)").appendingPathComponent("list")
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if let response = response as? HTTPURLResponse {
+            if let response = response as? HTTPURLResponse, response.statusCode == 401 {
                 print("The response from fetching clients by workoutID: \(response) and status: \(response.statusCode)")
                 completion(nil, NSError())
                 return
@@ -147,6 +147,7 @@ class ClientController {
             let jD = JSONDecoder()
             
             do {
+                jD.keyDecodingStrategy = .convertFromSnakeCase
                 let clients = try jD.decode([Client].self, from: data)
                 completion(clients, nil)
             } catch {
@@ -154,10 +155,10 @@ class ClientController {
                 completion(nil, error)
                 return
             }
-        }.resume()
+            }.resume()
     }
     
-   
+    
     //this might need to go in the client controller
     //DELETE CLIENT FROM CLASS BY WORKOUT ID FOR CLIENTS_ this returns an array of classes the client is signed up for
     //send class id in the url string and the user id in the body of the request
@@ -174,6 +175,7 @@ class ClientController {
         let url = baseURL.appendingPathComponent("remove").appendingPathComponent("\(workout.id)").appendingPathComponent("client")
         var request = URLRequest(url: url)
         request.httpMethod = "DELETE"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
         
         let jE = JSONEncoder()
@@ -188,7 +190,7 @@ class ClientController {
         }
         
         URLSession.shared.dataTask(with: request) { (_, response, error) in
-            if let response = response as? HTTPURLResponse {
+            if let response = response as? HTTPURLResponse, response.statusCode == 401 {
                 print("Response from trying to delete client by workoutID is: \(response) and status: \(response.statusCode)")
                 completion(NSError())
                 return
@@ -220,6 +222,7 @@ class ClientController {
         let url = baseURL.appendingPathComponent("remove").appendingPathComponent("\(theClass.id)").appendingPathComponent("instructor")
         var request = URLRequest(url: url)
         request.httpMethod = "DELETE"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
         
         let jE = JSONEncoder()
@@ -234,7 +237,7 @@ class ClientController {
         }
         
         URLSession.shared.dataTask(with: request) { (_, response, error) in
-            if let response = response as? HTTPURLResponse {
+            if let response = response as? HTTPURLResponse, response.statusCode == 401 {
                 print("Response from trying to delete client by theClassID is: \(response) and status: \(response.statusCode)")
                 completion(NSError())
                 return

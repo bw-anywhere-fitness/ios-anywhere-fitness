@@ -18,8 +18,8 @@ class WorkoutController {
         }
     }
     
-    func createClass(id: Int?, name: String, schedule: String, location: String, image: String?, instructorID: Int?, punchPass: PunchPass?, clients: [Client]?) -> Workout {
-        let newWorkout = Workout(id: id, name: name, schedule: schedule, location: location, image: image, instructorID: instructorID, punchPass: punchPass, clients: clients)
+    func createClass(id: Int?, name: String, schedule: String, location: String, image: String?, instructorId: Int?, punchPass: PunchPass?, clients: [Client]?) -> Workout {
+        let newWorkout = Workout(id: id, name: name, schedule: schedule, location: location, image: image, instructorId: instructorId, punchPass: punchPass, clients: clients)
         return newWorkout
     }
     
@@ -48,7 +48,7 @@ class WorkoutController {
         }
         
         URLSession.shared.dataTask(with: request) { (_, response, error) in
-            if let response = response as? HTTPURLResponse {
+            if let response = response as? HTTPURLResponse, response.statusCode == 401 {
                 print("This is the response for posting classes: \(response) and the status: \(response.statusCode)")
 //                completion(NSError())
                 return
@@ -74,9 +74,9 @@ class WorkoutController {
         request.addValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if let response = response as? HTTPURLResponse{
-                print("This is the stupid response we got badk: \(response) and the status: \(response.statusCode)")
-                return
+            if let response = response as? HTTPURLResponse {
+                print("This is the stupid response status: \(response.statusCode)")
+                
             }
             
             if let error = error {
@@ -94,6 +94,7 @@ class WorkoutController {
             let jD = JSONDecoder()
             
             do {
+//                jD.keyDecodingStrategy = .convertFromSnakeCase
                 let workouts = try jD.decode([Workout].self, from: data)
                 completion(workouts, nil)
                 print("This is all the classes: \(workouts)")
@@ -119,7 +120,7 @@ class WorkoutController {
         request.addValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if let response = response as? HTTPURLResponse {
+            if let response = response as? HTTPURLResponse, response.statusCode == 401 {
                 print("response from trying to fetch workouts by workoutID: \(response) and status: \(response.statusCode)")
                 completion(nil, NSError())
                 return
@@ -164,7 +165,7 @@ class WorkoutController {
         request.addValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if let response = response as? HTTPURLResponse {
+            if let response = response as? HTTPURLResponse, response.statusCode == 401 {
                 print("This is the response from fetching classes by Instructor: \(response) and status: \(response.statusCode)")
                 completion(nil, NSError())
                 return
@@ -220,7 +221,7 @@ class WorkoutController {
         }
         
         URLSession.shared.dataTask(with: request) { (_, response, error) in
-            if let response = response as? HTTPURLResponse {
+            if let response = response as? HTTPURLResponse, response.statusCode == 401 {
                 print("This is the response we got back from the network call posting a client to a workout by id: \(response) and status: \(response.statusCode)")
                 completion(NSError())
                 return
@@ -252,7 +253,7 @@ class WorkoutController {
         request.addValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { (_, response, error) in
-            if let response = response as? HTTPURLResponse {
+            if let response = response as? HTTPURLResponse, response.statusCode == 401 {
                 print("This is the response we got back from trying to delete the workout by id: \(response) and status: \(response.statusCode)")
                 completion(NSError())
                 return
@@ -298,7 +299,7 @@ class WorkoutController {
         }
         
         URLSession.shared.dataTask(with: request) { (_, response, error) in
-            if let response =  response as? HTTPURLResponse {
+            if let response =  response as? HTTPURLResponse, response.statusCode == 401 {
                 print("The response for trying to delete workout via instructors id: \(response) and status: \(response.statusCode)")
                 completion(NSError())
                 return

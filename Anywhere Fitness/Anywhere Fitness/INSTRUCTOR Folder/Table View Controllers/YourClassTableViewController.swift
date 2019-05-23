@@ -10,19 +10,18 @@ import UIKit
 
 class YourClassTableViewController: UITableViewController {
 
-    private var workouts: [Workout] = []
+    private var workouts: [Workout] = [] {
+        didSet {
+            print("YourClassTableViewController, workout array was set")
+            tableView.reloadData()
+        }
+    }
     
     var client: Client? {
         didSet {
             print("client was set boi")
         }
     }
-    
-//    var wc: WorkoutController? {
-//        didSet {
-//            print("wc is set.")
-//        }
-//    }
     
     var cc: ClientController? {
         didSet {
@@ -32,6 +31,7 @@ class YourClassTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        getWorkouts()
     }
 
     // MARK: - Table view data source
@@ -53,6 +53,21 @@ class YourClassTableViewController: UITableViewController {
     }
     
 
+    func getWorkouts(){
+        guard let cc = cc, let myClient = client else { return }
+        cc.wc.fetchClassesBy(instructor: myClient) { (workouts, error) in
+            if let error = error {
+                print("Error getting workouts by instructor id: \(error.localizedDescription)")
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.workouts = workouts ?? []
+                self.view.backgroundColor = .magenta
+            }
+        }
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
