@@ -95,7 +95,52 @@ class WorkoutController {
         }.resume()
     }
     
-    //fetch workout of instructor
+    //FETCH WORKOUTS BY WORKOUT ID
+    func fetch(workouts: Workout, completion: @escaping ([Workout]?, Error?) -> Void){
+        guard let bearer = bearer else {
+            print("problem with the bearer")
+            completion(nil,NSError())
+            return}
+        
+        let url = baseURL.appendingPathComponent("\(workouts.id)")
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.addValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let response = response as? HTTPURLResponse {
+                print("response from trying to fetch workouts by workoutID: \(response) and status: \(response.statusCode)")
+                completion(nil, NSError())
+                return
+            }
+            
+            if let error = error {
+                print("Error trying to make network call to fetch workouts by workoutID: \(error.localizedDescription)")
+                completion(nil, error)
+                return
+            }
+            
+            guard let data = data else {
+                print("Error with data in fetch workouts with workout id function")
+                completion(nil, NSError())
+                return
+            }
+            
+            let jD = JSONDecoder()
+            do {
+                let returnedWorkouts = try jD.decode([Workout].self, from: data)
+                completion(returnedWorkouts, nil)
+            } catch  {
+                print("Error encoding workout fetching by workoutID: \(error.localizedDescription)")
+                completion(nil, error)
+                return
+            }
+        }.resume()
+        
+    }
+    
+    
+    //fetch workout of instructorID
     func fetchClassesBy(instructor: Client, completion: @escaping ([Workout]?, Error?) -> Void ){
         guard let bearer = bearer else {
             print("problem with the bearer")
@@ -142,7 +187,7 @@ class WorkoutController {
     
     //add client to class
     func addClientToWorkout(client: Client, workout: Workout, completion: @escaping (Error?) -> Void){
-        let url = baseURL.appendingPathComponent("add").appendingPathComponent(":\(client.id)")
+        let url = baseURL.appendingPathComponent("add").appendingPathComponent(":\(workout.id)")
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -150,7 +195,7 @@ class WorkoutController {
         let jE = JSONEncoder()
         
         do {
-            let jsonData = try jE.encode(client)
+            let jsonData = try jE.encode(client.id)
             request.httpBody = jsonData
         } catch  {
             print("Error encoding adding client to workout by ID: \(error.localizedDescription)")
@@ -187,6 +232,7 @@ class WorkoutController {
         let url = baseURL.appendingPathComponent("\(workout.id)")
         var request = URLRequest(url: url)
         request.httpMethod = "DELETE"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { (_, response, error) in
@@ -220,6 +266,7 @@ class WorkoutController {
         let url = baseURL.appendingPathComponent("instructor").appendingPathComponent("\(instructorID.id)").appendingPathComponent("remove")
         var request = URLRequest(url: url)
         request.httpMethod = "DELETE"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
         
         //send the class you want to delete in the body of the request
