@@ -10,7 +10,23 @@ import UIKit
 
 class WorkoutListViewController: UIViewController {
 
-    var client: Client?
+    var client: Client? {
+        didSet {
+            print("this client was set")
+        }
+    }
+    
+    var cc: ClientController? {
+        didSet {
+            print("client controller was set also.")
+        }
+    }
+    
+    var wc: WorkoutController? {
+        didSet {
+            print("Workout controller was set toooooo. ")
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

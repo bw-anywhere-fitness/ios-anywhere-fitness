@@ -10,6 +10,8 @@ import UIKit
 
 class SignUpViewController: UIViewController {
     var cc = ClientController()
+    var wc = WorkoutController()
+    
     var client: Client?
     
     var isInstructor = false
@@ -60,7 +62,7 @@ class SignUpViewController: UIViewController {
     @IBAction func signInButtonPressed(_ sender: UIButton) {
         guard let name = firstNameTF.text, !name.isEmpty, let lastName = lastNameTF.text, !lastName.isEmpty,let email = emailTF.text, !email.isEmpty, let password = confirmPwTF.text, !password.isEmpty else { return }
         
-        let client = Client(username: name, password: password, instructor: switchProperties.isOn, workouts: nil, passes: nil)
+        let client = Client(username: name, password: password, instructor: switchProperties.isOn, workouts: nil, passes: nil, id: nil)
 
         cc.signIn(with: client) { (error) in
             if let error = error {
@@ -86,7 +88,7 @@ class SignUpViewController: UIViewController {
         
         guard let name = firstNameTF.text, !name.isEmpty, let lastName = lastNameTF.text, !lastName.isEmpty,let email = emailTF.text, !email.isEmpty, let password = confirmPwTF.text, !password.isEmpty else { return }
         
-        let client = Client(username: name, password: password, instructor: switchProperties.isOn, workouts: nil, passes: nil)
+        let client = Client(username: name, password: password, instructor: switchProperties.isOn, workouts: nil, passes: nil, id: nil)
         cc.signUp(client: client) { (error) in
             if let error = error {
                 print("Error with signUp function call: \(error.localizedDescription)")
@@ -116,11 +118,14 @@ class SignUpViewController: UIViewController {
         if segue.identifier == "InstructorSegue" {
             guard let instructorVC = segue.destination as? InstructorHomeViewController, let client = client else { return }
             instructorVC.client = client
+            instructorVC.wc = wc
         }
         
         if segue.identifier == "ClientSegue" {
             guard let workoutListVC = segue.destination as? WorkoutListViewController, let client = client else { return }
             workoutListVC.client = client
+            workoutListVC.cc = cc
+            workoutListVC.wc = wc
         }
     }
    

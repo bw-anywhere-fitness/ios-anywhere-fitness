@@ -15,6 +15,12 @@ class InstructorHomeViewController: UIViewController {
             print("client was passed through/in and junk.")
         }
     }
+    var wc: WorkoutController? {
+        didSet {
+            print("workoutController was set.")
+        }
+    }
+    
     @IBOutlet weak var yourClassProperties: UIButton!
     @IBOutlet weak var addANewClassProperties: UIButton!
     
