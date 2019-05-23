@@ -10,7 +10,17 @@ import UIKit
 
 class YourClassTableViewController: UITableViewController {
 
-    var client: Client?
+    var client: Client? {
+        didSet {
+            print("client was set boi")
+        }
+    }
+    
+    var wc: WorkoutController? {
+        didSet {
+            print("wc is set.")
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

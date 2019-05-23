@@ -15,6 +15,13 @@ class AddClassViewController: UIViewController {
             print("Client was set")
         }
     }
+    
+    var wc: WorkoutController? {
+        didSet {
+            print("wc is set.")
+            
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
