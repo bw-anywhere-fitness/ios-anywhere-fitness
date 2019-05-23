@@ -54,13 +54,15 @@ class InstructorHomeViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "YourClassSegue" {
-            guard let yourClassVC = segue.destination as? YourClassTableViewController, let client = client else { return }
+            guard let yourClassVC = segue.destination as? YourClassTableViewController, let client = client, let wc = wc else { return }
             yourClassVC.client = client
+            yourClassVC.wc = wc
         }
         
         if segue.identifier == "AddClassSegue" {
-            guard let addClassVC = segue.destination as? AddClassViewController, let client = client else { return }
+            guard let addClassVC = segue.destination as? AddClassViewController, let client = client, let wc = wc else { return }
             addClassVC.client = client
+            addClassVC.wc = wc
         }
         
     }

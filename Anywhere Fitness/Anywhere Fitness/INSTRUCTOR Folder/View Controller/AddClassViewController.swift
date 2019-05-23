@@ -12,13 +12,13 @@ class AddClassViewController: UIViewController {
     
     var client: Client? {
         didSet {
-            print("Client was set")
+            print("AddClassViewController: Client was set")
         }
     }
     
     var wc: WorkoutController? {
         didSet {
-            print("wc is set.")
+            print("AddClassViewController: wc is set.")
             
         }
     }
@@ -27,6 +27,9 @@ class AddClassViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    @IBAction func placeTF(_ sender: UITextField) {
+        view.backgroundColor = .green
     }
     
 

@@ -15,8 +15,8 @@ class WorkoutController {
     var bearer: Bearer?
     
     
-    func createClass(id: Int?, name: String, schedule: String, location: String, image: String?, instructorID: Int?, punchPass: PunchPass?, clients: [Client]?, type: Type?) -> Workout {
-        let newWorkout = Workout(id: id, name: name, schedule: schedule, location: location, image: image, instructorID: instructorID, punchPass: punchPass, clients: clients, type: type)
+    func createClass(id: Int?, name: String, schedule: String, location: String, image: String?, instructorID: Int?, punchPass: PunchPass?, clients: [Client]?, type: Type?, place: Place?) -> Workout {
+        let newWorkout = Workout(id: id, name: name, schedule: schedule, location: location, image: image, instructorID: instructorID, punchPass: punchPass, clients: clients, type: type, place: place)
         return newWorkout
     }
     

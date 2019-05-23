@@ -37,8 +37,6 @@
 		1BB03E75229336B900603B43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BB03E74229336B900603B43 /* Assets.xcassets */; };
 		1BB03E78229336B900603B43 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BB03E76229336B900603B43 /* LaunchScreen.storyboard */; };
 		1BC9CCEE2294305100EB80E1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC9CCED2294305100EB80E1 /* SignUpViewController.swift */; };
-		1BD81CDA2296D9AB00DAF04B /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD81CD92296D9AB00DAF04B /* Type.swift */; };
-		1BD81CDC2296DA7C00DAF04B /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD81CDB2296DA7C00DAF04B /* Place.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,8 +72,6 @@
 		1BB03E77229336B900603B43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1BB03E79229336B900603B43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1BC9CCED2294305100EB80E1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		1BD81CD92296D9AB00DAF04B /* Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
-		1BD81CDB2296DA7C00DAF04B /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,8 +126,6 @@
 			children = (
 				1B8870D122957F0100E11A28 /* Instructor.swift */,
 				1B8870D322957F1300E11A28 /* Workout.swift */,
-				1BD81CD92296D9AB00DAF04B /* Type.swift */,
-				1BD81CDB2296DA7C00DAF04B /* Place.swift */,
 				1B8870D522957F1D00E11A28 /* Location.swift */,
 				1B8870D722957F4500E11A28 /* PunchPass.swift */,
 			);
@@ -345,7 +339,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B8870FD22958AE800E11A28 /* DetailYourClassTableViewController.swift in Sources */,
-				1BD81CDC2296DA7C00DAF04B /* Place.swift in Sources */,
 				1B88710F2295E6AE00E11A28 /* WorkoutController.swift in Sources */,
 				1B88710B22958DD600E11A28 /* WorkoutListCollectionViewCell.swift in Sources */,
 				1B8870E0229584A600E11A28 /* Bearer.swift in Sources */,
@@ -356,7 +349,6 @@
 				1B88710022958B4300E11A28 /* InstructorsAttendanceTableViewCell.swift in Sources */,
 				1B6A92982296014900E6C575 /* InstructorHomeViewController.swift in Sources */,
 				1BB03E6E229336B800603B43 /* AppDelegate.swift in Sources */,
-				1BD81CDA2296D9AB00DAF04B /* Type.swift in Sources */,
 				1B88710422958C5100E11A28 /* SearchCellTableViewCell.swift in Sources */,
 				1B8870F722958A4C00E11A28 /* WorkoutDetailViewController.swift in Sources */,
 				1B8870D022957EF600E11A28 /* Client.swift in Sources */,

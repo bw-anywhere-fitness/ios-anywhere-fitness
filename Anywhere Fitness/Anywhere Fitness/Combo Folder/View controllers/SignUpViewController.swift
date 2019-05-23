@@ -12,7 +12,11 @@ class SignUpViewController: UIViewController {
     var cc = ClientController()
     var wc = WorkoutController()
     
-    var client: Client?
+    var client: Client? {
+        didSet {
+            print("client is set in the signup view controller")
+        }
+    }
     
     var isInstructor = false
     var hasTrainingCert = false
@@ -74,9 +78,13 @@ class SignUpViewController: UIViewController {
                 self.view.backgroundColor = .magenta
                 if client.instructor {
                     self.client = client
+                    print("SIGN IN: insiide the dispatchQ trying to assign client who is instructor")
+
                     self.performSegue(withIdentifier: "InstructorSegue", sender: self)
                 } else {
                     self.client = client
+                    print("SIGN IN: insiide the dispatchQ trying to assign client who is instructor")
+
                     self.performSegue(withIdentifier: "ClientSegue", sender: self)
                 }
 
@@ -99,9 +107,11 @@ class SignUpViewController: UIViewController {
                 self.view.backgroundColor = .green
                 if self.isInstructor && self.hasTrainingCert {
                     self.client = client
+                    print("insiide the dispatchQ trying to assign client who is instructor")
                     self.performSegue(withIdentifier: "InstructorSegue", sender: self)
                 } else {
                     self.client = client
+                    print("insiide the dispatchQ trying to assign client who is aint an instructor")
                     self.performSegue(withIdentifier: "ClientSegue", sender: self)
                 }
             }
@@ -116,13 +126,17 @@ class SignUpViewController: UIViewController {
       
         //pass the client to the appropriate place
         if segue.identifier == "InstructorSegue" {
-            guard let instructorVC = segue.destination as? InstructorHomeViewController, let client = client else { return }
+            guard let instructorVC = segue.destination as? InstructorHomeViewController, let client = client else {
+                print("segue error going to instructor's side")
+                return }
             instructorVC.client = client
             instructorVC.wc = wc
         }
         
         if segue.identifier == "ClientSegue" {
-            guard let workoutListVC = segue.destination as? WorkoutListViewController, let client = client else { return }
+            guard let workoutListVC = segue.destination as? WorkoutListViewController, let client = client else {
+                print("segue error going to client's side")
+                return }
             workoutListVC.client = client
             workoutListVC.cc = cc
             workoutListVC.wc = wc

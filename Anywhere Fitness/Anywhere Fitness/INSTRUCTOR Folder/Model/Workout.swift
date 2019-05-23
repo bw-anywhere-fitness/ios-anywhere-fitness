@@ -20,6 +20,7 @@ struct Workout: Codable {
     let punchPass: PunchPass?
     let clients: [Client]?
     let type: Type?
+    let place: Place?
 }
 
 extension Workout: Equatable {
