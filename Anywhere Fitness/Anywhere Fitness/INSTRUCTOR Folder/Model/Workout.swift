@@ -23,7 +23,7 @@ struct Workout: Codable {
 
 extension Workout: Equatable {
     static func == (lhs: Workout, rhs: Workout) -> Bool {
-        return lhs.id == rhs.id && lhs.name == rhs.name && lhs.instructorID == rhs.instructorID && lhs.type == rhs.type
+        return lhs.id == rhs.id && lhs.name == rhs.name && lhs.instructorID == rhs.instructorID 
     }
     
     

@@ -10,28 +10,35 @@ import UIKit
 
 class YourClassTableViewController: UITableViewController {
 
+    private var workouts: [Workout] = []
+    
     var client: Client? {
         didSet {
             print("client was set boi")
         }
     }
     
-    var wc: WorkoutController? {
+//    var wc: WorkoutController? {
+//        didSet {
+//            print("wc is set.")
+//        }
+//    }
+    
+    var cc: ClientController? {
         didSet {
-            print("wc is set.")
+            print("ClientController was set.")
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 10
+        return cc?.wc.workouts.count ?? 0
     }
 
    
@@ -39,8 +46,9 @@ class YourClassTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "yourClassCell", for: indexPath)
 
         // Configure the cell...
-        cell.textLabel?.text = "This is a test bro"
-        cell.detailTextLabel?.text = "Still a test bro bro"
+        let workout = cc?.wc.workouts[indexPath.row]
+        cell.textLabel?.text = workout?.name
+        cell.detailTextLabel?.text = workout?.location
         return cell
     }
     

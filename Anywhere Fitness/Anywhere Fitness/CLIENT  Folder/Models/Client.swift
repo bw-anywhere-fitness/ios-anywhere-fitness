@@ -18,6 +18,8 @@ struct Client: Codable {
     let workouts: [Workout]?
     var passes: [PunchPass]?
     let id: Int?
+    let usesRemaining: Int? //coding keys uses_remaining in api doc
+    
 }
 
 extension Client: Equatable {

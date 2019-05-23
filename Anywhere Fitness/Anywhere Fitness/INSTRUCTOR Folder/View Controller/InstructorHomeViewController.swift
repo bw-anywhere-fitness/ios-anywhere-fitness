@@ -15,11 +15,17 @@ class InstructorHomeViewController: UIViewController {
             print("client was passed through/in and junk.")
         }
     }
-    var wc: WorkoutController? {
-        didSet {
-            print("workoutController was set.")
+//    var wc: WorkoutController? {
+//        didSet {
+//            print("workoutController was set.")
+//        }
+//    }
+    
+        var cc: ClientController? {
+            didSet {
+                print("ClientController was set.")
+            }
         }
-    }
     
     @IBOutlet weak var yourClassProperties: UIButton!
     @IBOutlet weak var addANewClassProperties: UIButton!
@@ -54,15 +60,15 @@ class InstructorHomeViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "YourClassSegue" {
-            guard let yourClassVC = segue.destination as? YourClassTableViewController, let client = client, let wc = wc else { return }
+            guard let yourClassVC = segue.destination as? YourClassTableViewController, let client = client, let cc = cc else { return }
             yourClassVC.client = client
-            yourClassVC.wc = wc
+            yourClassVC.cc = cc
         }
         
         if segue.identifier == "AddClassSegue" {
-            guard let addClassVC = segue.destination as? AddClassViewController, let client = client, let wc = wc else { return }
+            guard let addClassVC = segue.destination as? AddClassViewController, let client = client, let cc = cc else { return }
             addClassVC.client = client
-            addClassVC.wc = wc
+            addClassVC.cc = cc
         }
         
     }

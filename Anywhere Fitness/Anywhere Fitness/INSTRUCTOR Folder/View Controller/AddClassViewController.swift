@@ -16,10 +16,17 @@ class AddClassViewController: UIViewController {
         }
     }
     
-    var wc: WorkoutController? {
+//    var wc: WorkoutController? {
+//        didSet {
+//            print("AddClassViewController: wc is set.")
+//
+////        }
+//    }
+    
+    
+    var cc: ClientController? {
         didSet {
-            print("AddClassViewController: wc is set.")
-            
+            print("ClientController was set.")
         }
     }
     
@@ -42,9 +49,13 @@ class AddClassViewController: UIViewController {
     }
     
     @IBAction func saveEverything(_ sender: UIButton) {
-        guard let className = classNameTF.text, !className.isEmpty, let type = typeOfClassTF.text, !type.isEmpty, let location = locationTF.text, !location.isEmpty, let wc = wc else { return }
-        let workout = wc.createClass(id: nil, name: className, schedule: datePicker.date.description, location: location, image: nil, instructorID: client?.id, punchPass: nil, clients: nil)
-        wc.postClass(with: workout) { (error) in
+        guard let className = classNameTF.text, !className.isEmpty, let type = typeOfClassTF.text, !type.isEmpty, let location = locationTF.text, !location.isEmpty, let cc = cc else {
+            print("Problem with the guard let.")
+            return }
+        let workout = cc.wc.createClass(id: nil, name: className, schedule: "Tuesday Morning", location: location, image: nil, instructorID: client?.id, punchPass: nil, clients: nil)
+        print("this is the workout: \(workout)")
+        
+        cc.wc.postClass(with: workout) { (error) in
             if let error = error {
                 print("Error trying to post class in AddClassViewcontroller: \(error.localizedDescription)")
                 return
@@ -53,7 +64,7 @@ class AddClassViewController: UIViewController {
             DispatchQueue.main.async {
                 print("it worked")
                 self.view.backgroundColor = .magenta
-                self.wc?.workouts.append(workout)
+                self.cc?.wc.workouts.append(workout)
             }
         }
     }

@@ -10,7 +10,7 @@ import UIKit
 
 class SignUpViewController: UIViewController {
     var cc = ClientController()
-    var wc = WorkoutController()
+//    var wc = WorkoutController()
     
     var client: Client? {
         didSet {
@@ -44,7 +44,7 @@ class SignUpViewController: UIViewController {
     //MARK: - IBActions
     @IBAction func cprFirstAidButton(_ sender: UIButton) {
         //do something
-        
+    
     }
     
     @IBAction func trainingCertButton(_ sender: UIButton) {
@@ -66,7 +66,7 @@ class SignUpViewController: UIViewController {
     @IBAction func signInButtonPressed(_ sender: UIButton) {
         guard let name = firstNameTF.text, !name.isEmpty, let lastName = lastNameTF.text, !lastName.isEmpty,let email = emailTF.text, !email.isEmpty, let password = confirmPwTF.text, !password.isEmpty else { return }
         
-        let client = Client(username: name, password: password, instructor: switchProperties.isOn, workouts: nil, passes: nil, id: nil)
+        let client = Client(username: name, password: password, instructor: switchProperties.isOn, workouts: nil, passes: nil, id: nil, usesRemaining: nil)
 
         cc.signIn(with: client) { (error) in
             if let error = error {
@@ -96,7 +96,7 @@ class SignUpViewController: UIViewController {
         
         guard let name = firstNameTF.text, !name.isEmpty, let lastName = lastNameTF.text, !lastName.isEmpty,let email = emailTF.text, !email.isEmpty, let password = confirmPwTF.text, !password.isEmpty else { return }
         
-        let client = Client(username: name, password: password, instructor: switchProperties.isOn, workouts: nil, passes: nil, id: nil)
+        let client = Client(username: name, password: password, instructor: switchProperties.isOn, workouts: nil, passes: nil, id: nil, usesRemaining: nil)
         cc.signUp(client: client) { (error) in
             if let error = error {
                 print("Error with signUp function call: \(error.localizedDescription)")
@@ -118,7 +118,6 @@ class SignUpViewController: UIViewController {
         }
     }
     
-  
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -130,7 +129,8 @@ class SignUpViewController: UIViewController {
                 print("segue error going to instructor's side")
                 return }
             instructorVC.client = client
-            instructorVC.wc = wc
+//            instructorVC.wc = wc
+            instructorVC.cc = cc
         }
         
         if segue.identifier == "ClientSegue" {
@@ -139,7 +139,7 @@ class SignUpViewController: UIViewController {
                 return }
             workoutListVC.client = client
             workoutListVC.cc = cc
-            workoutListVC.wc = wc
+//            workoutListVC.wc = wc
         }
     }
    

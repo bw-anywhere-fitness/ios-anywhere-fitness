@@ -9,6 +9,7 @@
 import Foundation
 
 class ClientController {
+    var wc = WorkoutController()
     
     var clients: [Client] = []
     var bearer: Bearer?
@@ -52,6 +53,8 @@ class ClientController {
             
             do {
                 self.bearer = try jD.decode(Bearer.self, from: data)
+//                client.bearer = self.bearer
+                self.wc.bearer = self.bearer
                 print("this is the bearer: \(self.bearer?.token)")
             } catch {
                 print("Error decoding the data: \(error.localizedDescription)")
@@ -99,6 +102,7 @@ class ClientController {
             
             do {
                 self.bearer = try jD.decode(Bearer.self, from: data)
+                self.wc.bearer = self.bearer
                 print("this is the bearer: \(self.bearer?.token)")
             } catch {
                 print("Error decoding the data: \(error.localizedDescription)")

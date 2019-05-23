@@ -12,5 +12,4 @@ struct Bearer: Codable {
     var id: Int
     var instructor: Bool
     var token: String
-    
 }

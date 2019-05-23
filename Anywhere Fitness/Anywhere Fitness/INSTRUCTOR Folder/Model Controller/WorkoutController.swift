@@ -12,7 +12,11 @@ class WorkoutController {
     
     let baseURL = URL(string: "https://anywhere-fitness.herokuapp.com/classes")!
     var workouts: [Workout] = []
-    var bearer: Bearer?
+    var bearer: Bearer? {
+        didSet {
+            print("this was set.")
+        }
+    }
     
     
     func createClass(id: Int?, name: String, schedule: String, location: String, image: String?, instructorID: Int?, punchPass: PunchPass?, clients: [Client]?) -> Workout {
@@ -20,11 +24,18 @@ class WorkoutController {
         return newWorkout
     }
     
+    //I might have to add bearer as a parameter or add bearer as part of the client model
     func postClass(with workout: Workout, completion: @escaping (Error?) -> Void) {
+        guard let bearer = bearer?.token else {
+            print("WorkoutController: problem with postClass bearer")
+            completion(NSError())
+            return}
+        
         let url = baseURL
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("\(bearer)", forHTTPHeaderField: "Authorization")
         
         let jE = JSONEncoder()
         
@@ -40,16 +51,14 @@ class WorkoutController {
         URLSession.shared.dataTask(with: request) { (_, response, error) in
             if let response = response as? HTTPURLResponse {
                 print("This is the response for posting classes: \(response) and the status: \(response.statusCode)")
-                completion(NSError())
+//                completion(NSError())
                 return
-            }
-            
-            if let error = error {
+            } else if let error = error {
                 print("Error with posting classes to server: \(error.localizedDescription)")
                 completion(error)
                 return
             }
-        }
+        }.resume()
     }
     
     //GET Workouts
