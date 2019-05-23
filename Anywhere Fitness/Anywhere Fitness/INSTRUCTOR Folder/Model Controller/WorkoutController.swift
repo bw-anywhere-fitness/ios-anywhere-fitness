@@ -180,7 +180,7 @@ class WorkoutController {
         workouts.remove(at: workoutToDelete)
         
         guard let bearer = bearer else {
-            print("problem with the bearer")
+            print("problem with the bearer with the delete workout function")
             completion(NSError())
             return}
         
@@ -208,7 +208,51 @@ class WorkoutController {
  
     //DELETE WORKOUT BY INSTRUCTOR ID
     func delete(workout: Workout, with instructorID: Client, completion: @escaping (Error?) -> Void){
+        guard let workoutToDelete = workouts.firstIndex(of: workout) else { return }
+        workouts.remove(at: workoutToDelete)
         
+        guard let bearer = bearer else {
+            print("Problem withthe bearer inside the delete workout by instructor id")
+            completion(NSError())
+            return
+        }
+        
+        let url = baseURL.appendingPathComponent("instructor").appendingPathComponent("\(instructorID.id)").appendingPathComponent("remove")
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        request.addValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
+        
+        //send the class you want to delete in the body of the request
+        let jE = JSONEncoder()
+        
+        do {
+            let jsonData = try jE.encode(workout)
+            request.httpBody = jsonData
+        } catch  {
+            print("Error trying to delete the workout by instructor's id: \(error.localizedDescription)")
+            completion(error)
+            return
+        }
+        
+        URLSession.shared.dataTask(with: request) { (_, response, error) in
+            if let response =  response as? HTTPURLResponse {
+                print("The response for trying to delete workout via instructors id: \(response) and status: \(response.statusCode)")
+                completion(NSError())
+                return
+            }
+            
+            if let error = error {
+                print("Error trying to delte the workout via instructors id: \(error.localizedDescription)")
+                completion(error)
+                return
+            }
+            completion(nil)
+        }.resume()
     }
     
+    //DELETE CLIENT FROM CLASS BY WORKOUT ID FOR CLIENTS_ this returns an array of classes the client is signed up for
+    //send class id in the url string and the user id in the body of the request
+    func delete(client: Client, fromWorkout workout: Workout, completion: @escaping (Error?) -> Void ){
+        
+    }
 }
