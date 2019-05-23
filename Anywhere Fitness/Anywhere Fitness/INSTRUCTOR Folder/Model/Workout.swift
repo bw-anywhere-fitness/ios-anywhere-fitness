@@ -19,8 +19,6 @@ struct Workout: Codable {
 //    //a workout may or may not have clients signed up for it
     let punchPass: PunchPass?
     let clients: [Client]?
-    let type: Type?
-    let place: Place?
 }
 
 extension Workout: Equatable {

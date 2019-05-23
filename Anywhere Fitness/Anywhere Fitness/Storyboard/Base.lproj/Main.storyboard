@@ -32,6 +32,9 @@
                                     <constraint firstAttribute="height" constant="30" id="Pke-k9-sY1"/>
                                 </constraints>
                                 <state key="normal" title="Add Photo"/>
+                                <connections>
+                                    <action selector="addPhoto:" destination="2ff-cS-8Ya" eventType="touchUpInside" id="fkv-ME-Lww"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Class:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0h-Qk-oyD">
                                 <rect key="frame" x="4" y="315" width="81.5" height="20.5"/>
@@ -47,6 +50,9 @@
                                 <date key="date" timeIntervalSinceReferenceDate="580177028.42570806">
                                     <!--2019-05-22 00:17:08 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="datePickerValueChanged:" destination="2ff-cS-8Ya" eventType="valueChanged" id="AMh-tl-JMu"/>
+                                </connections>
                             </datePicker>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="65a-6D-gve">
                                 <rect key="frame" x="4" y="339" width="400" height="30"/>
@@ -68,6 +74,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovw-NI-71f">
                                 <rect key="frame" x="169" y="832" width="65" height="30"/>
                                 <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveEverything:" destination="2ff-cS-8Ya" eventType="touchUpInside" id="O83-eT-X4Q"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="sjr-YO-coU">
                                 <rect key="frame" x="4" y="377" width="400" height="30"/>
@@ -95,14 +104,11 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" horizontalCompressionResistancePriority="748" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location of class" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Znq-K1-8zh">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" horizontalCompressionResistancePriority="748" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location of class" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Znq-K1-8zh">
                                         <rect key="frame" x="63.5" y="0.0" width="336.5" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <action selector="placeTF:" destination="2ff-cS-8Ya" eventType="touchUpInside" id="TP3-kF-hU1"/>
-                                        </connections>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -162,6 +168,13 @@
                             <barButtonItem title="Settings" id="C1Z-ut-2CF"/>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="classNameTF" destination="0mA-23-VS3" id="EaD-Ul-vBj"/>
+                        <outlet property="datePicker" destination="3yJ-LB-6TA" id="nzK-me-FQm"/>
+                        <outlet property="imageView" destination="8JU-jv-gFs" id="uJw-ju-uox"/>
+                        <outlet property="locationTF" destination="Znq-K1-8zh" id="v27-zH-MqZ"/>
+                        <outlet property="typeOfClassTF" destination="ukv-8m-BEo" id="CfF-jc-PE9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Ub-yd-Cd3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
