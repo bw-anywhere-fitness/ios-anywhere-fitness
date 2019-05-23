@@ -10,7 +10,11 @@ import UIKit
 
 class AddClassViewController: UIViewController {
     
-    var client: Client?
+    var client: Client? {
+        didSet {
+            print("Client was set")
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

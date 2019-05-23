@@ -17,4 +17,5 @@ struct Client: Codable {
     //client may or may not be signed up for workouts
     let workouts: [Workout]?
     let passes: [PunchPass]?
+    let id: Int?
 }
