@@ -15,8 +15,8 @@ class WorkoutController {
     var bearer: Bearer?
     
     
-    func createClass(id: Int?, name: String, schedule: String, location: String, image: String?, instructorID: Int?, punchPass: PunchPass?, clients: [Client]?) -> Workout {
-        let newWorkout = Workout(id: id, name: name, schedule: schedule, location: location, image: image, instructorID: instructorID, punchPass: punchPass, clients: clients)
+    func createClass(id: Int?, name: String, schedule: String, location: String, image: String?, instructorID: Int?, punchPass: PunchPass?, clients: [Client]?, type: Type?) -> Workout {
+        let newWorkout = Workout(id: id, name: name, schedule: schedule, location: location, image: image, instructorID: instructorID, punchPass: punchPass, clients: clients, type: type)
         return newWorkout
     }
     
@@ -52,6 +52,7 @@ class WorkoutController {
         }
     }
     
+    //GET Workouts
     func fetchClasses(completion: @escaping ([Workout]?, Error?) -> Void ){
         guard let bearer = bearer else {
             print("problem with the bearer")
@@ -138,7 +139,7 @@ class WorkoutController {
         }.resume()
     }
     
-    //fetch workout of instructorID
+    //fetch workout by instructorID
     func fetchClassesBy(instructor: Client, completion: @escaping ([Workout]?, Error?) -> Void ){
         guard let bearer = bearer else {
             print("problem with the bearer")
@@ -183,7 +184,7 @@ class WorkoutController {
         }.resume()
     }
     
-    //add client to class
+    //POST ADD client to workout by ID
     func addClientToWorkout(client: Client, workout: Workout, completion: @escaping (Error?) -> Void){
         let url = baseURL.appendingPathComponent("add").appendingPathComponent(":\(workout.id)")
         var request = URLRequest(url: url)

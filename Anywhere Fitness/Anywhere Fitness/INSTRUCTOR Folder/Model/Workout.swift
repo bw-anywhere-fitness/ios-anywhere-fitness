@@ -19,11 +19,12 @@ struct Workout: Codable {
 //    //a workout may or may not have clients signed up for it
     let punchPass: PunchPass?
     let clients: [Client]?
+    let type: Type?
 }
 
 extension Workout: Equatable {
     static func == (lhs: Workout, rhs: Workout) -> Bool {
-        return lhs.id == rhs.id && lhs.name == rhs.name && lhs.instructorID == rhs.instructorID
+        return lhs.id == rhs.id && lhs.name == rhs.name && lhs.instructorID == rhs.instructorID && lhs.type == rhs.type
     }
     
     
