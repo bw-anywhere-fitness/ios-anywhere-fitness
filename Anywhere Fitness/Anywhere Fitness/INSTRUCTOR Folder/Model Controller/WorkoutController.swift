@@ -19,7 +19,7 @@ class WorkoutController {
     }
     
     func createClass(id: Int?, name: String, schedule: String, location: String, image: String?, instructorId: Int?, punchPass: PunchPass?, clients: [Client]?) -> Workout {
-        let newWorkout = Workout(id: id, name: name, schedule: schedule, location: location, image: image, instructorId: instructorId, punchPass: punchPass, clients: clients)
+        let newWorkout = Workout(id: id, name: name, schedule: schedule, location: location, image: image, instructorId: instructorId, punchPass: punchPass, clients: clients, username: nil)
         return newWorkout
     }
     

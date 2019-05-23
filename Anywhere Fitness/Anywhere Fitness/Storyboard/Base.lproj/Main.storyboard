@@ -330,10 +330,16 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WNz-2m-Gkn">
                                                     <rect key="frame" x="308" y="0.0" width="41" height="57.5"/>
                                                     <state key="normal" title="Here?"/>
+                                                    <connections>
+                                                        <action selector="attendenceButton:" destination="2bI-uc-0h8" eventType="touchUpInside" id="fnl-0Y-Pd3"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vng-qg-tSe">
                                                     <rect key="frame" x="357" y="0.0" width="37" height="57.5"/>
                                                     <state key="normal" title="paid?"/>
+                                                    <connections>
+                                                        <action selector="paidButtonPressed:" destination="2bI-uc-0h8" eventType="touchUpInside" id="dRg-X3-6FF"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -345,6 +351,11 @@
                                         <constraint firstAttribute="trailing" secondItem="fbV-O3-S5o" secondAttribute="trailing" constant="12" id="uQR-8j-FoF"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="hereButtonProperties" destination="WNz-2m-Gkn" id="7FH-KR-y5K"/>
+                                    <outlet property="nameOfClientLabel" destination="pPZ-sD-4IV" id="zeZ-x1-s6q"/>
+                                    <outlet property="paidButtonProperties" destination="vng-qg-tSe" id="y4x-5X-Kho"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

@@ -10,15 +10,24 @@ import UIKit
 
 class InstructorsAttendanceTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    var workout: Workout?
+    var client: Client?
+    var cc: ClientController?
+    
+    @IBOutlet weak var nameOfClientLabel: UILabel!
+    @IBOutlet weak var hereButtonProperties: UIButton!
+    @IBOutlet weak var paidButtonProperties: UIButton!
+
+    @IBAction func attendenceButton(_ sender: UIButton) {
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    @IBAction func paidButtonPressed(_ sender: UIButton) {
+        //ignore the paid button its a stretch
     }
-
+    
+    func udpateViews(){
+        guard let client = client else { return }
+        nameOfClientLabel.text = client.username
+        
+    }
+    
 }

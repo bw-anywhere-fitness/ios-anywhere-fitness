@@ -37,19 +37,7 @@ class AddClassViewController: UIViewController {
     @IBAction func addPhoto(_ sender: UIButton) {
         guard let cc = cc, let myClient = client else { return }
         
-        cc.wc.fetchClasses { (workouts, error) in
-            if let error = error {
-                print("Error pulling down workouts by client ID : \(error.localizedDescription)")
-                return
-            }
-            
-            DispatchQueue.main.async {
-                print("These are the workouts we got back :\(workouts)")
-                self.view.backgroundColor = .magenta
-            }
-        }
-        
-//        cc.wc.fetchClassesBy(instructor: myClient) { (workouts, error) in
+//        cc.wc.fetchClasses { (workouts, error) in
 //            if let error = error {
 //                print("Error pulling down workouts by client ID : \(error.localizedDescription)")
 //                return
@@ -60,6 +48,18 @@ class AddClassViewController: UIViewController {
 //                self.view.backgroundColor = .magenta
 //            }
 //        }
+        
+        cc.wc.fetchClassesBy(instructor: myClient) { (workouts, error) in
+            if let error = error {
+                print("Error pulling down workouts by client ID : \(error.localizedDescription)")
+                return
+            }
+
+            DispatchQueue.main.async {
+                print("These are the workouts we got back :\(workouts)")
+                self.view.backgroundColor = .magenta
+            }
+        }
     }
     
     @IBAction func datePickerValueChanged(_ sender: UIDatePicker) {
@@ -70,7 +70,7 @@ class AddClassViewController: UIViewController {
             print("Problem with the guard let.")
             return }
         let workout = cc.wc.createClass(id: nil, name: className, schedule: "Tuesday Morning", location: location, image: nil, instructorId: client?.id, punchPass: nil, clients: nil)
-        print("this is the workout: \(workout)")
+        
         
         cc.wc.postClass(with: workout) { (error) in
             if let error = error {
@@ -79,7 +79,7 @@ class AddClassViewController: UIViewController {
             }
             
             DispatchQueue.main.async {
-                print("it worked")
+                print("Workout Saved worked")
                 self.view.backgroundColor = .magenta
                 self.cc?.wc.workouts.append(workout)
             }
