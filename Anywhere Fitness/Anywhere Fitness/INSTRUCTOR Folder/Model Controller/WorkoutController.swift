@@ -136,9 +136,7 @@ class WorkoutController {
                 return
             }
         }.resume()
-        
     }
-    
     
     //fetch workout of instructorID
     func fetchClassesBy(instructor: Client, completion: @escaping ([Workout]?, Error?) -> Void ){

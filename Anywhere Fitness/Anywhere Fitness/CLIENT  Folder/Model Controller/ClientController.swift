@@ -109,6 +109,51 @@ class ClientController {
             }.resume()
     }
     
+    //GET CLIENTS BY WORKOUT ID
+    func fetch(clients: Client, by workoutID: Workout, completion: @escaping ([Client]?, Error?) -> Void ){
+        guard let bearer = bearer else {
+            print("problem with the bearer")
+            completion(nil,NSError())
+            return}
+        
+        let url = baseURL.appendingPathComponent("\(workoutID.id)").appendingPathComponent("list")
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.addValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let response = response as? HTTPURLResponse {
+                print("The response from fetching clients by workoutID: \(response) and status: \(response.statusCode)")
+                completion(nil, NSError())
+                return
+            }
+            
+            if let error = error {
+                print("Error inside the data task session for fetching clients by workoutID: \(error.localizedDescription)")
+                completion(nil, error)
+                return
+            }
+            
+            guard let data = data else {
+                print("Error with the data inside the fetch clients via workoutID function")
+                completion(nil, NSError())
+                return
+            }
+            
+            let jD = JSONDecoder()
+            
+            do {
+                let clients = try jD.decode([Client].self, from: data)
+                completion(clients, nil)
+            } catch {
+                print("Error decoding the clients we got back from fetching clients function via workoutID: \(error.localizedDescription)")
+                completion(nil, error)
+                return
+            }
+        }.resume()
+    }
+    
+   
     //this might need to go in the client controller
     //DELETE CLIENT FROM CLASS BY WORKOUT ID FOR CLIENTS_ this returns an array of classes the client is signed up for
     //send class id in the url string and the user id in the body of the request
