@@ -14,10 +14,9 @@ class WorkoutController {
     var workouts: [Workout] = []
     var bearer: Bearer? {
         didSet {
-            print("this was set.")
+            print("WorkoutController bearer was set.")
         }
     }
-    
     
     func createClass(id: Int?, name: String, schedule: String, location: String, image: String?, instructorID: Int?, punchPass: PunchPass?, clients: [Client]?) -> Workout {
         let newWorkout = Workout(id: id, name: name, schedule: schedule, location: location, image: image, instructorID: instructorID, punchPass: punchPass, clients: clients)
@@ -71,6 +70,7 @@ class WorkoutController {
         let url = baseURL.appendingPathComponent("classes")
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
@@ -115,6 +115,7 @@ class WorkoutController {
         let url = baseURL.appendingPathComponent("\(workouts.id)")
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
@@ -159,6 +160,7 @@ class WorkoutController {
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
@@ -195,10 +197,16 @@ class WorkoutController {
     
     //POST ADD client to workout by ID
     func addClientToWorkout(client: Client, workout: Workout, completion: @escaping (Error?) -> Void){
+        guard let bearer = bearer else {
+            print("problem with the bearer")
+            completion(NSError())
+            return}
+        
         let url = baseURL.appendingPathComponent("add").appendingPathComponent(":\(workout.id)")
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
         
         let jE = JSONEncoder()
         
