@@ -66,8 +66,8 @@ class SignUpViewController: UIViewController {
     @IBAction func signInButtonPressed(_ sender: UIButton) {
         guard let name = firstNameTF.text, !name.isEmpty, let lastName = lastNameTF.text, !lastName.isEmpty,let email = emailTF.text, !email.isEmpty, let password = confirmPwTF.text, !password.isEmpty else { return }
         
-        let client = Client(username: name, password: password, instructor: switchProperties.isOn, workouts: nil, passes: nil, id: nil, usesRemaining: nil)
-
+        let client = Client(username: name, password: password, instructor: switchProperties.isOn)
+        
         cc.signIn(with: client) { (error) in
             if let error = error {
                 print("Sign in did not work - function call: \(error.localizedDescription)")
@@ -96,7 +96,7 @@ class SignUpViewController: UIViewController {
         
         guard let name = firstNameTF.text, !name.isEmpty, let lastName = lastNameTF.text, !lastName.isEmpty,let email = emailTF.text, !email.isEmpty, let password = confirmPwTF.text, !password.isEmpty else { return }
         
-        let client = Client(username: name, password: password, instructor: switchProperties.isOn, workouts: nil, passes: nil, id: nil, usesRemaining: nil)
+        let client = Client(username: name, password: password, instructor: switchProperties.isOn)
         cc.signUp(client: client) { (error) in
             if let error = error {
                 print("Error with signUp function call: \(error.localizedDescription)")

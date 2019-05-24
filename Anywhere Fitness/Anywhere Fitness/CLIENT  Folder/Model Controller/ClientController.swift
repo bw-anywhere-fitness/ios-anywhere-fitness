@@ -17,6 +17,7 @@ class ClientController {
     private let baseURL = URL(string: "https://anywhere-fitness.herokuapp.com/")!
     
     func signUp(client: Client, completion: @escaping (Error?) -> Void){
+
         //endpoints are /auth/register
         let endPointUrl = baseURL.appendingPathComponent("auth").appendingPathComponent("register")
         
@@ -66,6 +67,7 @@ class ClientController {
     
     
     func signIn(with client: Client, completion: @escaping (Error?) -> Void ){
+        var client = client
         //get the base url
         let url = baseURL.appendingPathComponent("auth").appendingPathComponent("login")
         
@@ -251,5 +253,14 @@ class ClientController {
             
             completion(nil)
             }.resume()
+    }
+    
+    func update(client: Client, workouts: [Workout]?, passes: [PunchPass]?,usesRemaining: Int?){
+        guard let bearer = bearer else { return }
+        client.workouts = workouts
+        client.passes = passes
+        client.id = bearer.id 
+        client.usesRemaining = usesRemaining
+
     }
 }

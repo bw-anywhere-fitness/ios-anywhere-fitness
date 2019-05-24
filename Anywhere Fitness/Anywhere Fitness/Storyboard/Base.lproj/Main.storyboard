@@ -165,7 +165,11 @@
                     <navigationItem key="navigationItem" id="W3J-8p-bbE">
                         <rightBarButtonItems>
                             <barButtonItem title="Sign Out" id="zhK-Ja-IqO"/>
-                            <barButtonItem title="Settings" id="C1Z-ut-2CF"/>
+                            <barButtonItem title="Settings" id="C1Z-ut-2CF">
+                                <connections>
+                                    <segue destination="8wT-hr-J4C" kind="show" id="hpv-qw-cUM"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
@@ -225,7 +229,11 @@
                     <navigationItem key="navigationItem" title="Home" id="C0S-jQ-WQV">
                         <rightBarButtonItems>
                             <barButtonItem title="Sign Out" id="PQO-wJ-pHk"/>
-                            <barButtonItem title="Settings" id="jYl-0M-vup"/>
+                            <barButtonItem title="Settings" id="jYl-0M-vup">
+                                <connections>
+                                    <segue destination="8wT-hr-J4C" kind="show" id="P6p-ra-IJQ"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
@@ -293,7 +301,11 @@
                     <navigationItem key="navigationItem" id="Dl4-3l-pl2">
                         <rightBarButtonItems>
                             <barButtonItem title="Sign Out" id="Cwg-jo-oEs"/>
-                            <barButtonItem title="Settings" id="7Qg-fu-IqN"/>
+                            <barButtonItem title="Settings" id="7Qg-fu-IqN">
+                                <connections>
+                                    <segue destination="8wT-hr-J4C" kind="show" id="lqy-St-oRe"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -366,7 +378,11 @@
                     <navigationItem key="navigationItem" id="MFs-mj-HZg">
                         <rightBarButtonItems>
                             <barButtonItem title="Sign Out" id="KSF-NB-Xb6"/>
-                            <barButtonItem title="Settings" id="Zpo-la-FrZ"/>
+                            <barButtonItem title="Settings" id="Zpo-la-FrZ">
+                                <connections>
+                                    <segue destination="8wT-hr-J4C" kind="show" id="aJU-U7-blG"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
@@ -391,7 +407,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ay" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AXU-hM-En5">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="z" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AXU-hM-En5">
                                         <rect key="frame" x="0.0" y="33.5" width="254" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="fBa-4m-7Sd"/>
@@ -406,7 +422,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ay" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dlC-fG-MkK">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="z" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dlC-fG-MkK">
                                         <rect key="frame" x="0.0" y="110" width="254" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Fo5-Es-0vl"/>
@@ -421,7 +437,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ay" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1gL-10-hb3">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="z" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1gL-10-hb3">
                                         <rect key="frame" x="0.0" y="186.5" width="254" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Pyh-d4-Rkq"/>
@@ -436,7 +452,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ay" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hl7-vs-aWJ">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="z" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hl7-vs-aWJ">
                                         <rect key="frame" x="0.0" y="263" width="254" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="vOa-Fy-pHA"/>
@@ -451,7 +467,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ay" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GjL-8Y-h7N">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="z" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GjL-8Y-h7N">
                                         <rect key="frame" x="0.0" y="339.5" width="254" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="SvZ-3Y-oyu"/>
@@ -795,7 +811,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLT-wC-7fB">
-                                <rect key="frame" x="274" y="725" width="120" height="62"/>
+                                <rect key="frame" x="274" y="676" width="120" height="62"/>
                                 <color key="backgroundColor" red="0.64705882349999999" green="0.91764705879999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="iDe-Km-Sep"/>
@@ -810,14 +826,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KFo-lm-hPD">
-                                <rect key="frame" x="183" y="814" width="48" height="48"/>
+                                <rect key="frame" x="183" y="765" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="Gh3-tv-Zpp"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="hot tub"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n8L-aw-bxP">
-                                <rect key="frame" x="20" y="729" width="115" height="62"/>
+                                <rect key="frame" x="20" y="680" width="115" height="62"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="62" id="0KQ-Jc-kSA"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="115" id="mNO-OR-ZRn"/>
@@ -1512,6 +1528,7 @@
         <image name="hot tub" width="225" height="225"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="lqy-St-oRe"/>
         <segue reference="hMM-Oj-TJ0"/>
     </inferredMetricsTieBreakers>
 </document>

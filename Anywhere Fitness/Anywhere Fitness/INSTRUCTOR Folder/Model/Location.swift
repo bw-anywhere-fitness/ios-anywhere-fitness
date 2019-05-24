@@ -9,7 +9,7 @@
 import Foundation
 
 struct Location: Codable {
-    let date: Date
+    let date: String
     let place: String
     
 }

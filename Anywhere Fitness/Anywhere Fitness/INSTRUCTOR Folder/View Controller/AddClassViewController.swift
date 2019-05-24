@@ -31,7 +31,15 @@ class AddClassViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateTheUpdate()
     }
+    
+    
+    func updateTheUpdate(){
+        guard let client = client else { return }
+        cc?.update(client: client, workouts: nil, passes: nil, usesRemaining: nil)
+    }
+    
     
     //MARK: - IBActions
     @IBAction func addPhoto(_ sender: UIButton) {
@@ -54,9 +62,9 @@ class AddClassViewController: UIViewController {
                 print("Error pulling down workouts by client ID : \(error.localizedDescription)")
                 return
             }
+            self.cc?.wc.workouts = workouts ?? []
 
             DispatchQueue.main.async {
-                print("These are the workouts we got back :\(workouts)")
                 self.view.backgroundColor = .magenta
             }
         }
@@ -65,14 +73,20 @@ class AddClassViewController: UIViewController {
     @IBAction func datePickerValueChanged(_ sender: UIDatePicker) {
     }
     
+    
+    
     @IBAction func saveEverything(_ sender: UIButton) {
-        guard let className = classNameTF.text, !className.isEmpty, let type = typeOfClassTF.text, !type.isEmpty, let location = locationTF.text, !location.isEmpty, let cc = cc else {
+        print("saved button pressed.")
+        guard let className = classNameTF.text, !className.isEmpty, let type = typeOfClassTF.text, !type.isEmpty, let location = locationTF.text, !location.isEmpty, let cc = cc, let client = client, let id = client.id else {
             print("Problem with the guard let.")
             return }
-        let workout = cc.wc.createClass(id: nil, name: className, schedule: "Tuesday Morning", location: location, image: nil, instructorId: client?.id, punchPass: nil, clients: nil)
         
+        print("passed the guard statement.")
+        let workout = cc.wc.createClass(id: nil, name: className, schedule: "Tuesday Morning", location: location, image: nil, instructorId: id, punchPass: nil, clients: nil, username: nil)
+        print("this is the workout we just created: \(workout) AND CLIENT ID: \(client.id)")
         
         cc.wc.postClass(with: workout) { (error) in
+            print("inside the post class function")
             if let error = error {
                 print("Error trying to post class in AddClassViewcontroller: \(error.localizedDescription)")
                 return
@@ -82,9 +96,11 @@ class AddClassViewController: UIViewController {
                 print("Workout Saved worked")
                 self.view.backgroundColor = .magenta
                 self.cc?.wc.workouts.append(workout)
+                print("here are the workouts that were added to the array \(self.cc?.wc.workouts)")
             }
         }
     }
+    
  
     /*
     // MARK: - Navigation

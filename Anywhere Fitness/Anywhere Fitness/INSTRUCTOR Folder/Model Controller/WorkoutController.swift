@@ -11,15 +11,19 @@ import Foundation
 class WorkoutController {
     
     let baseURL = URL(string: "https://anywhere-fitness.herokuapp.com/classes")!
-    var workouts: [Workout] = []
+    var workouts: [Workout] = [] {
+        didSet {
+            print("workouts in WC has been set.")
+        }
+    }
     var bearer: Bearer? {
         didSet {
             print("WorkoutController bearer was set.")
         }
     }
     
-    func createClass(id: Int?, name: String, schedule: String, location: String, image: String?, instructorId: Int?, punchPass: PunchPass?, clients: [Client]?) -> Workout {
-        let newWorkout = Workout(id: id, name: name, schedule: schedule, location: location, image: image, instructorId: instructorId, punchPass: punchPass, clients: clients, username: nil)
+    func createClass(id: Int?, name: String, schedule: String, location: String, image: String?, instructorId: Int?, punchPass: PunchPass?, clients: [Client]?, username: String?) -> Workout {
+        let newWorkout = Workout(id: id, name: name, schedule: schedule, location: location, image: image, instructorId: instructorId, punchPass: punchPass, clients: clients, username: username)
         return newWorkout
     }
     
@@ -57,6 +61,7 @@ class WorkoutController {
                 completion(error)
                 return
             }
+            completion(nil)
         }.resume()
     }
     
@@ -70,8 +75,8 @@ class WorkoutController {
         let url = baseURL.appendingPathComponent("classes")
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
+//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let response = response as? HTTPURLResponse {
@@ -95,11 +100,12 @@ class WorkoutController {
             
             do {
 //                jD.keyDecodingStrategy = .convertFromSnakeCase
-                let workouts = try jD.decode([Workout].self, from: data)
-                completion(workouts, nil)
+                let workouts = try jD.decode([String : [Workout]].self, from: data).map { $0.value }
+                let allWorkouts = workouts.first
+                completion(allWorkouts, nil)
                 print("This is all the classes: \(workouts)")
             } catch {
-                print("Error decoding the data trying to fetch all workouts: \(error.localizedDescription)")
+                print("Error decoding the data trying to fetch all workouts: \(error)")
                 completion(nil, error)
                 return
             }
@@ -116,8 +122,8 @@ class WorkoutController {
         let url = baseURL.appendingPathComponent("\(workouts.id)")
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
+//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let response = response as? HTTPURLResponse, response.statusCode == 401 {
@@ -313,6 +319,4 @@ class WorkoutController {
             completion(nil)
         }.resume()
     }
-    
-    
 }

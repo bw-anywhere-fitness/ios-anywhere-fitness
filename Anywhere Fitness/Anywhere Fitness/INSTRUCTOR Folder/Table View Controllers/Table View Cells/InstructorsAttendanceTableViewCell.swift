@@ -27,7 +27,6 @@ class InstructorsAttendanceTableViewCell: UITableViewCell {
     func udpateViews(){
         guard let client = client else { return }
         nameOfClientLabel.text = client.username
-        
     }
     
 }

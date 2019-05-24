@@ -38,6 +38,4 @@ extension Workout: Equatable {
     static func == (lhs: Workout, rhs: Workout) -> Bool {
         return lhs.id == rhs.id && lhs.name == rhs.name && lhs.instructorId == rhs.instructorId
     }
-    
-    
 }
