@@ -10,14 +10,28 @@ import UIKit
 
 class DetailYourClassTableViewController: UITableViewController {
 
+    //this is where you are supposed to fetch clients by workoutID
+    var workout: Workout? {
+        didSet {
+            print("DetailYourClassTableViewController: workout was set boi")
+        }
+    }
+    
+    var client: Client? {
+        didSet {
+            print("DetailYourClassTableViewController: client was set boi")
+        }
+    }
+    
+    var cc: ClientController? {
+        didSet {
+            print("DetailYourClassTableViewController: ClientController was set.")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source

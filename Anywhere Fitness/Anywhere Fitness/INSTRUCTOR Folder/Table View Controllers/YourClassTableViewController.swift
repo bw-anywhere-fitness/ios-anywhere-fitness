@@ -9,13 +9,12 @@
 import UIKit
 
 class YourClassTableViewController: UITableViewController {
-
-    private var workouts: [Workout] = [] {
-        didSet {
-            print("YourClassTableViewController, workout array was set")
-            tableView.reloadData()
-        }
-    }
+    
+//    private var workouts: [Workout]? {
+//        didSet {
+//            print("this was set also")
+//        }
+//    }
     
     var client: Client? {
         didSet {
@@ -33,40 +32,51 @@ class YourClassTableViewController: UITableViewController {
         super.viewDidLoad()
 //        getWorkouts()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return cc?.wc.workouts.count ?? 0
+//       return workouts?.count ?? 0
     }
 
-   
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "yourClassCell", for: indexPath)
-
+        
         // Configure the cell...
-        let workout = cc?.wc.workouts[indexPath.row]
-        cell.textLabel?.text = workout?.name
-        cell.detailTextLabel?.text = workout?.location
+        guard let workout = cc?.wc.workouts[indexPath.row] else { return UITableViewCell() }
+//        guard let workout = workouts?[indexPath.row] else { return UITableViewCell() }
+        cell.textLabel?.text = workout.name
+        cell.detailTextLabel?.text = workout.location
+//        cell.textLabel?.text = "test"
+//        cell.detailTextLabel?.text = "more tests"
+     
         return cell
     }
     
-
-    func getWorkouts(){
-        guard let cc = cc, let myClient = client else { return }
-        cc.wc.fetchClassesBy(instructor: myClient) { (workouts, error) in
-            if let error = error {
-                print("Error getting workouts by instructor id: \(error.localizedDescription)")
-                return
-            }
-            
-            DispatchQueue.main.async {
-                self.workouts = workouts ?? []
-                self.view.backgroundColor = .magenta
-            }
-        }
-    }
+    
+//    func getWorkouts(){
+//        guard let cc = cc, let myclient = client else { return }
+//        cc.wc.fetchClassesBy(instructor: myclient) { (workouts, error) in
+//            if let error = error {
+//                print("Error fetching classes in YourClassTableViewController: \(error.localizedDescription)")
+//                return
+//            }
+//
+//            self.workouts = workouts ?? []
+//            print("YourClassTableViewController workouts returned: \(self.workouts)")
+//            DispatchQueue.main.async {
+//                self.tableView.reloadData()
+//            }
+//
+//        }
+//    }
     
     /*
     // Override to support conditional editing of the table view.
@@ -103,14 +113,19 @@ class YourClassTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "CellSegue" {
+            guard let destinationVc = segue.destination as? DetailYourClassTableViewController, let cc = cc, let client = client, let index = tableView.indexPathForSelectedRow else { return }
+            let workoutToPass = cc.wc.workouts[index.row]
+            destinationVc.cc = cc
+            destinationVc.client = client
+            destinationVc.workout = workoutToPass
+        }
     }
-    */
+   
 
 }

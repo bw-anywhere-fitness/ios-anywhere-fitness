@@ -171,9 +171,9 @@ class WorkoutController {
         request.addValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if let response = response as? HTTPURLResponse, response.statusCode == 401 {
+            if let response = response as? HTTPURLResponse, response.statusCode == 401 /*response.statusCode == 401*/ {
                 print("This is the response from fetching classes by Instructor: \(response) and status: \(response.statusCode)")
-                completion(nil, NSError())
+//                completion(nil, NSError())
                 return
             }
             
@@ -192,8 +192,8 @@ class WorkoutController {
             let jD = JSONDecoder()
             
             do {
-                let jsonData = try jD.decode([Workout].self, from: data)
-                completion(jsonData, nil)
+                let workouts = try jD.decode([Workout].self, from: data)
+                completion(workouts, nil)
             } catch {
                 print("Error decoding all the classes fetched by instructor's id: \(error.localizedDescription)")
                 completion(nil, error)

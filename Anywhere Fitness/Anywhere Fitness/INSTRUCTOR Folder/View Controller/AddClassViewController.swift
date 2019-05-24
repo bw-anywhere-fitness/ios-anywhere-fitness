@@ -43,31 +43,7 @@ class AddClassViewController: UIViewController {
     
     //MARK: - IBActions
     @IBAction func addPhoto(_ sender: UIButton) {
-        guard let cc = cc, let myClient = client else { return }
-        
-//        cc.wc.fetchClasses { (workouts, error) in
-//            if let error = error {
-//                print("Error pulling down workouts by client ID : \(error.localizedDescription)")
-//                return
-//            }
-//
-//            DispatchQueue.main.async {
-//                print("These are the workouts we got back :\(workouts)")
-//                self.view.backgroundColor = .magenta
-//            }
-//        }
-        
-        cc.wc.fetchClassesBy(instructor: myClient) { (workouts, error) in
-            if let error = error {
-                print("Error pulling down workouts by client ID : \(error.localizedDescription)")
-                return
-            }
-            self.cc?.wc.workouts = workouts ?? []
 
-            DispatchQueue.main.async {
-                self.view.backgroundColor = .magenta
-            }
-        }
     }
     
     @IBAction func datePickerValueChanged(_ sender: UIDatePicker) {
@@ -95,7 +71,7 @@ class AddClassViewController: UIViewController {
             DispatchQueue.main.async {
                 print("Workout Saved worked")
                 self.view.backgroundColor = .magenta
-                self.cc?.wc.workouts.append(workout)
+                self.cc?.wc.workouts.append(workout) //I'm putting this in the WC array so that I can get the workouts later. This is because when I made my createClass function I didn't append the array there. So I have to do it here. 
                 print("here are the workouts that were added to the array \(self.cc?.wc.workouts)")
             }
         }
